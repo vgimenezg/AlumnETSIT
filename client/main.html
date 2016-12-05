@@ -1,5 +1,56 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.0.7/angular-material.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+</head>
 <body>
-  <div class="container">
-   <h1>Your contents go here</h1>
-  </div>
+    <!-- No parece aceptar parámetros en la primera etiqueta body, lo que obliga de momento a hacer este apaño -->
+    <body layout="row" flex ng-controller="TestController">
+
+        <!-- Menú lateral -->
+        <md-sidenav md-whiteframe="4" class="md-sidenav-left" md-component-id="menu-sidenav">
+            <md-toolbar class="md-hue-2">
+                <div class="md-toolbar-tools">
+                    <h2>Menú</h2>
+                </div>
+            </md-toolbar>
+        </md-sidenav>
+
+        <!-- Página principal -->
+        <div layout="column" flex>
+
+            <!-- Barra de navegación -->
+            <md-toolbar md-whiteframe="2">
+                <div class="md-toolbar-tools">
+                    <md-button class="md-icon-button" ng-click="openMenu()">
+                        <md-icon md-svg-icon="navigation:ic_menu_24px"></md-icon>
+                    </md-button>
+                    <h1 ng-bind="title"></h1>
+                </div>
+            </md-toolbar>
+
+            <!-- Cuerpo -->
+            <md-content layout="row" flex>
+                <div layout="column" flex>
+                    <div class="md-display-1" layout="row" layout-padding>
+                        <span>Página de</span>
+                        <span ng-bind="name"></span>
+                    </div>
+                    <div layout="row">
+                        <div layout="column">
+                            <md-button class="md-raised md-primary" ng-click="showAlert('Uno.')">Botón 1</md-button>
+                            <md-button class="md-raised md-accent" ng-click="showAlert('Dos.')">Botón 2</md-button>
+                        </div>
+                        <div layout="column">
+                            <md-input-container>
+                                <label>Nombre</label>
+                                <input ng-model="name"/>
+                            </md-input-container>
+                        </div>
+                    </div>
+                </div>
+            </md-content>
+        </div>
+
+
+    </body>
 </body>
