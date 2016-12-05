@@ -10,6 +10,15 @@ Aplicación móvil desarrollada con Meteor como parte del Trabajo Fin de Grado d
 [+info](https://github.com/vgimenezg/AlumnETSIT/wiki)
 ***
 
+Para añadir los iconos de Material Design:
+
+`$ meteor add pagebakers:ionicons`
+`$ meteor add planettraining:material-design-icons`
+
+Para instalar las dependencias:
+
+`$ npm install`
+
 Para lanzar la aplicación en su navegador, ejecute los siguientes comandos:
 
 `$ cd AlumnETSIT`
