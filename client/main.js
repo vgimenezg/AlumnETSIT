@@ -1,15 +1,20 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import ngMaterial from 'angular-material';
-import example from '../imports/components/example/example';
+import register from '../imports/components/register/register';
+import header from '../imports/components/header/header';
+import uiRouter from 'angular-ui-router';       
+
 
 // Declaración del módulo principal de la aplicación, con sus dependencias. Registro de los componentes de prueba (config, controller).
 angular.module('proTic', [
     angularMeteor,
-    ngMaterial
+    ngMaterial,
+    register.name,
+    header.name,
+    uiRouter
 ])
-.config(testConfig)
-.controller("TestController", testController);
+.config(testConfig);
 
 // Función de configuración de prueba, proveedor de iconos y de temas. Conveniente separar en otro fichero.
 function testConfig($mdIconProvider, $mdThemingProvider) {
@@ -31,20 +36,8 @@ function testConfig($mdIconProvider, $mdThemingProvider) {
     .theme("default")
     .primaryPalette("green")
     .accentPalette("amber");
-
 }
 
-// Controlador de prueba. Conviene separar en otro fichero.
-function testController($scope, $mdSidenav, $window) {
-    $scope.title = "ProTic";
-    $scope.name = "Anónimo";
-    $scope.openMenu = function () {
-        $mdSidenav("menu-sidenav").toggle();
-    }
-    $scope.showAlert = function(text) {
-        $window.alert(text);
-    }
-}
 
 // Asocia el módulo de la aplicación al 'document'.
 function onReady() {
