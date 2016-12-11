@@ -1,0 +1,11 @@
+#header {
+    margin-bottom: 60px;
+}
+
+#header .fixed {
+    position: fixed !important;
+}
+
+.header-title, header-subtitle {
+    padding: 0px 15px;
+}
