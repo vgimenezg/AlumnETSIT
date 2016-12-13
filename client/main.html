@@ -1,10 +1,11 @@
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.0.7/angular-material.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+    <base href="/">
 </head>
 <body>
     <!-- No parece aceptar parámetros en la primera etiqueta body, lo que obliga de momento a hacer este apaño -->
-    <body layout="row" flex ng-controller="TestController">
+    <body layout="row" flex ng-controller="AppController">
 
         <!-- Menú lateral -->
         <md-sidenav md-whiteframe="4" class="md-sidenav-left" md-component-id="menu-sidenav">
@@ -16,39 +17,26 @@
         </md-sidenav>
 
         <!-- Página principal -->
+
+
+
         <div layout="column" flex>
 
             <!-- Barra de navegación -->
             <md-toolbar md-whiteframe="2">
                 <div class="md-toolbar-tools">
                     <md-button class="md-icon-button" ng-click="openMenu()">
-                        <md-icon md-svg-icon="navigation:ic_menu_24px"></md-icon>
+                        <md-icon>
+                            <svg width="24" height="24" viewBox="0 0 24 24" id="ic_menu_24px" x="96" y="72"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+                        </md-icon>
                     </md-button>
                     <h1 ng-bind="title"></h1>
                 </div>
             </md-toolbar>
 
             <!-- Cuerpo -->
-            <md-content layout="row" flex>
-                <div layout="column" flex>
-                    <div class="md-display-1" layout="row" layout-padding>
-                        <span>Página de</span>
-                        <span ng-bind="name"></span>
-                    </div>
-                    <div layout="row">
-                        <div layout="column">
-                            <md-button class="md-raised md-primary" ng-click="showAlert('Uno.')">Botón 1</md-button>
-                            <md-button class="md-raised md-accent" ng-click="showAlert('Dos.')">Botón 2</md-button>
-                        </div>
-                        <div layout="column">
-                            <md-input-container>
-                                <label>Nombre</label>
-                                <input ng-model="name"/>
-                            </md-input-container>
-                        </div>
-                    </div>
-                </div>
-            </md-content>
+            <div ui-view=""></div>
+
         </div>
 
 

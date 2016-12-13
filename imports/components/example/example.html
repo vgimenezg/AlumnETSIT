@@ -1,0 +1,20 @@
+<md-content layout="row" flex>
+    <div layout="column" flex>
+        <div class="md-display-1" layout="row" layout-padding>
+            <span>Página de</span>
+            <span ng-bind="$ctrl.name"></span>
+        </div>
+        <div layout="row">
+            <div layout="column">
+                <md-button class="md-raised md-primary" ng-click="$ctrl.showAlert('Uno.')">Botón 1</md-button>
+                <md-button class="md-raised md-accent" ng-click="$ctrl.showAlert('Dos.')">Botón 2</md-button>
+            </div>
+            <div layout="column">
+                <md-input-container>
+                    <label>Nombre</label>
+                    <input ng-model="$ctrl.name"/>
+                </md-input-container>
+            </div>
+        </div>
+    </div>
+</md-content>

@@ -50,6 +50,7 @@ mongo-id@1.0.5
 npm-mongo@1.4.44_1
 observe-sequence@1.0.12
 ordered-dict@1.0.8
+planettraining:material-design-icons@2.2.3
 promise@0.7.2_1
 random@1.0.10
 reactive-var@1.0.10
