@@ -19,7 +19,7 @@ export default angular.module('header', [
 }).controller("headerController", headerController);
 
 function getSubtitle() {
-    return "<custom subititle>";
+    return "";
 }
 
 function getTitle() {

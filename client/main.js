@@ -15,13 +15,14 @@ angular.module('proTic', [
     angularMeteor,
     uiRouter,
     example.name,
+    header.name,
+    register.name,
     viewIndex.name,
     jobInfoRequest.name,
     ngMaterial
 ])
 .config(routeConfig)
-.config(materialConfig)
-.controller("AppController", appController);
+.config(materialConfig);
 
 // Función de configuración de Material Angular, proveedor de iconos y de temas. Conveniente separar en otro fichero.
 function materialConfig($mdIconProvider, $mdThemingProvider) {
@@ -56,13 +57,6 @@ function routeConfig($locationProvider, $urlRouterProvider, $stateProvider) {
 
 }
 
-// Controlador de prueba. Conviene separar en otro fichero.
-function appController($scope, $mdSidenav, $window) {
-    $scope.title = "ProTic";
-    $scope.openMenu = function () {
-        $mdSidenav("menu-sidenav").toggle();
-    }
-}
 
 // Asocia el módulo de la aplicación al 'document'.
 function onReady() {
