@@ -1,27 +1,34 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import ngMaterial from 'angular-material';
+import uiRouter from 'angular-ui-router';
+
+// Custom Components
 import register from '../imports/components/register/register';
 import header from '../imports/components/header/header';
-import uiRouter from 'angular-ui-router';       
-
+import example from '../imports/components/example/example';
+import viewIndex from '../imports/components/view_index/view_index';
+import jobInfoRequest from '../imports/components/job_info_request/job_info_request';
 
 // Declaración del módulo principal de la aplicación, con sus dependencias. Registro de los componentes de prueba (config, controller).
 angular.module('proTic', [
     angularMeteor,
-    ngMaterial,
-    register.name,
-    header.name,
-    uiRouter
+    uiRouter,
+    example.name,
+    viewIndex.name,
+    jobInfoRequest.name,
+    ngMaterial
 ])
-.config(testConfig);
+.config(routeConfig)
+.config(materialConfig)
+.controller("AppController", appController);
 
-// Función de configuración de prueba, proveedor de iconos y de temas. Conveniente separar en otro fichero.
-function testConfig($mdIconProvider, $mdThemingProvider) {
+// Función de configuración de Material Angular, proveedor de iconos y de temas. Conveniente separar en otro fichero.
+function materialConfig($mdIconProvider, $mdThemingProvider) {
     'ngInject';
 
     // https://material.io/icons/
-    const iconPath = '/packages/planettraining_material-design-icons/bower_components/material-design-icons/sprites/svg-sprite/';
+    const iconPath = 'http://localhost:3000/packages/planettraining_material-design-icons/bower_components/material-design-icons/sprites/svg-sprite/';
     $mdIconProvider
     .iconSet('social', iconPath + 'svg-sprite-social.svg')
     .iconSet('action', iconPath + 'svg-sprite-action.svg')
@@ -35,9 +42,27 @@ function testConfig($mdIconProvider, $mdThemingProvider) {
     $mdThemingProvider
     .theme("default")
     .primaryPalette("green")
-    .accentPalette("amber");
+    .accentPalette("light-blue");
+
 }
 
+// Función de configuración de Angular Route. Conveniente separar en otro fichero.
+function routeConfig($locationProvider, $urlRouterProvider, $stateProvider) {
+    'ngInject';
+    $locationProvider.html5Mode(true);
+    $urlRouterProvider.otherwise('/index');
+    $stateProvider.state('viewIndex', {url: '/index', template: '<view-index></view-index>'});
+    $stateProvider.state('jobInfoRequest', {url: '/job_info_request', template: '<job-info-request></job-info-request>'});
+
+}
+
+// Controlador de prueba. Conviene separar en otro fichero.
+function appController($scope, $mdSidenav, $window) {
+    $scope.title = "ProTic";
+    $scope.openMenu = function () {
+        $mdSidenav("menu-sidenav").toggle();
+    }
+}
 
 // Asocia el módulo de la aplicación al 'document'.
 function onReady() {

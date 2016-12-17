@@ -2,12 +2,39 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.0.7/angular-material.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
     <link  rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <base href="/">
 </head>
 <body>
     <!-- No parece aceptar parámetros en la primera etiqueta body, lo que obliga de momento a hacer este apaño -->
-    <body layout="column" flex>
-         <!-- Toolbar and menu-->
-        <header></header>
-        <!-- Cuerpo -->
+    <body layout="row" flex ng-controller="AppController">
+
+        <!-- Menú lateral -->
+        <md-sidenav md-whiteframe="4" class="md-sidenav-left" md-component-id="menu-sidenav">
+            <md-toolbar class="md-hue-2">
+                <div class="md-toolbar-tools">
+                    <h2>Menú</h2>
+                </div>
+            </md-toolbar>
+        </md-sidenav>
+
+        <!-- Página principal -->
+
+        <div layout="column" flex>
+
+            <!-- Barra de navegación -->
+            <md-toolbar md-whiteframe="2">
+                <div class="md-toolbar-tools">
+                    <md-button class="md-icon-button" ng-click="openMenu()">
+                        <md-icon>
+                            <svg width="24" height="24" viewBox="0 0 24 24" id="ic_menu_24px" x="96" y="72"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+                        </md-icon>
+                    </md-button>
+                    <h1 ng-bind="title"></h1>
+                </div>
+            </md-toolbar>
+
+            <!-- Cuerpo -->
+            <div ui-view=""></div>
+        </div>
     </body>
 </body>
