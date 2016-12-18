@@ -9,6 +9,8 @@ import header from '../imports/components/header/header';
 import example from '../imports/components/example/example';
 import viewIndex from '../imports/components/view_index/view_index';
 import jobInfoRequest from '../imports/components/job_info_request/job_info_request';
+import experience from '../imports/components/experience/experience';
+import fullexperience from '../imports/components/experience/fullexperience';
 
 // Declaración del módulo principal de la aplicación, con sus dependencias. Registro de los componentes de prueba (config, controller).
 angular.module('proTic', [
@@ -19,6 +21,8 @@ angular.module('proTic', [
     register.name,
     viewIndex.name,
     jobInfoRequest.name,
+    experience.name,
+    fullexperience.name,
     ngMaterial
 ])
 .config(routeConfig)
@@ -54,7 +58,8 @@ function routeConfig($locationProvider, $urlRouterProvider, $stateProvider) {
     $urlRouterProvider.otherwise('/index');
     $stateProvider.state('viewIndex', {url: '/index', template: '<view-index></view-index>'});
     $stateProvider.state('jobInfoRequest', {url: '/job_info_request', template: '<job-info-request></job-info-request>'});
-
+    $stateProvider.state('register', {url: '/register', template: '<register></register>'});
+    $stateProvider.state('fullexperience', {url: '/fullexperience', template: '<fullexperience></fullexperience>'});
 }
 
 
