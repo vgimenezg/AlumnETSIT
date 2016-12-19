@@ -3,14 +3,6 @@ import angularMeteor from 'angular-meteor';
 import template from './header.html';
 import './header.css'
 
- 
-function config($locationProvider, $urlRouterProvider) {
-  'ngInject';
-  $locationProvider.html5Mode(true);
-  $urlRouterProvider.otherwise('/parties');
-};
-
-
 headerController.$inject = ["$scope", "$mdSidenav", "$window"];
 export default angular.module('header', [
   angularMeteor
