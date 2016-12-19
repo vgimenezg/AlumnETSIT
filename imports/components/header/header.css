@@ -4,7 +4,10 @@
 
 .fixed {
     position: fixed !important;
-    height: 60px;
+}
+
+md-toolbar.fixed {
+     height: 60px;
 }
 
 .header-title, header-subtitle {
