@@ -1,3 +1,5 @@
 /* CSS declarations go here */
-
+.section-toolbar {
+    z-index: 1;
+}
 
