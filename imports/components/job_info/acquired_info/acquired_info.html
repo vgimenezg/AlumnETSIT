@@ -1,0 +1,32 @@
+
+<div layout="column" flex>
+    <div layout="row">
+        <md-autocomplete
+          md-selected-item="ctrl.selectedItem"
+          md-search-text="ctrl.searchText"
+          md-items="item in []"
+          md-item-text="item.display"
+          placeholder="Búsqueda"
+          flex></md-autocomplete>
+    </div>
+    <div layout="row" flex>
+        <md-list flex>
+            <div ng-repeat="elem in $ctrl.elems">
+                <md-list-item class="{{elem.style}}" layout-padding>
+                    <div class="md-list-item-text ">
+                        <h3 ng-bind="elem.first"></h3>
+                        <h4 ng-bind="elem.second"></h4>
+                        <p ng-bind="elem.third"></p>
+                    </div>
+
+                    <md-button class="md-secondary md-icon-button md-accent md-hue-3" ng-click="doSomething()">
+                        Ver
+                    </md-button>
+                    <md-divider></md-divider>
+                </md-list-item>
+
+            </div>
+        </md-list>
+    </div>
+
+</div>

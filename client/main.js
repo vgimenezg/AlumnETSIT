@@ -8,7 +8,7 @@ import register from '../imports/components/register/register';
 import header from '../imports/components/header/header';
 import example from '../imports/components/example/example';
 import viewIndex from '../imports/components/view_index/view_index';
-import jobInfoRequest from '../imports/components/job_info_request/job_info_request';
+import jobInfo from '../imports/components/job_info/jobInfo';
 import experience from '../imports/components/experience/experience';
 import fullexperience from '../imports/components/experience/fullexperience';
 
@@ -20,7 +20,7 @@ angular.module('proTic', [
     header.name,
     register.name,
     viewIndex.name,
-    jobInfoRequest.name,
+    jobInfo.name,
     experience.name,
     fullexperience.name,
     ngMaterial
@@ -57,7 +57,8 @@ function routeConfig($locationProvider, $urlRouterProvider, $stateProvider) {
     $locationProvider.html5Mode(true);
     $urlRouterProvider.otherwise('/index');
     $stateProvider.state('viewIndex', {url: '/index', template: '<view-index></view-index>'});
-    $stateProvider.state('jobInfoRequest', {url: '/job_info_request', template: '<job-info-request></job-info-request>'});
+    $stateProvider.state('infoRequest', {url: '/info_request', template: '<info-request></info-request>'});
+    $stateProvider.state('interchangeArea', {url: '/interchange_area', template: '<interchange-area></interchange-area>'});
     $stateProvider.state('register', {url: '/register', template: '<register></register>'});
     $stateProvider.state('fullexperience', {url: '/fullexperience', template: '<fullexperience></fullexperience>'});
 }
