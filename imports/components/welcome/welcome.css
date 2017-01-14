@@ -1,0 +1,24 @@
+/* #welcome-template {
+    background-color: rgba(	0,128,0, 0.45);
+}*/
+
+.logo {
+    width: 48%;
+    height: auto;
+    margin: 0px auto;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+}
+
+.intro span {
+    display: inline-block;
+    line-height: 1.4;
+    text-align: center;
+}
+
+/*.buttons button {
+    border: solid 0.2px rgba(255, 255, 255, 0.2);
+}*/
