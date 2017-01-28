@@ -13,6 +13,7 @@ import experience from '../imports/components/experience/experience';
 import fullexperience from '../imports/components/experience/fullexperience';
 import welcome from '../imports/components/welcome/welcome';
 import initSesion from '../imports/components/init_sesion/init_sesion';
+import registerSuccess from '../imports/components/register/success';
 
 // Declaración del módulo principal de la aplicación, con sus dependencias. Registro de los componentes de prueba (config, controller).
 angular.module('proTic', [
@@ -27,6 +28,7 @@ angular.module('proTic', [
     fullexperience.name,
     welcome.name,
     initSesion.name,
+    registerSuccess.name,
     ngMaterial
 ])
 .config(routeConfig)
@@ -67,6 +69,7 @@ function routeConfig($locationProvider, $urlRouterProvider, $stateProvider) {
     $stateProvider.state('fullexperience', {url: '/fullexperience', template: '<fullexperience></fullexperience>'});
     $stateProvider.state('welcome', {url: '/welcome', template: '<welcome></welcome>'});
     $stateProvider.state('initSesion', {url: '/init_sesion', template: '<init-sesion></init-sesion>'});
+    $stateProvider.state('success', {url: '/register_success', template: '<success></success>'});
 }
 
 
