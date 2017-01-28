@@ -1,0 +1,33 @@
+<md-toolbar class="md-hue-2 section-toolbar">
+    <div class="md-toolbar-tools">
+        <h2>Home</h2>
+    </div>
+</md-toolbar>
+<div layout="column" flex="100" class="full-height">
+    <md-content layout-padding flex ng-controller="HomeCtrl">
+        <div layout="column" layout-margin layout-align="center" class="buttons">
+            <div layout="row" layout-wrap layout-padding layout-align="center" class="intro">
+                <span>{{infoSearch}}</span>
+            </div>
+            <div layout="row" flex layout-margin layout-align="center">
+                <md-button href="/register" flex="70" class="md-raised md-primary" type="submit">
+                    <i class="material-icons">search</i>
+                    {{titleSearchButton}}
+                </md-button>
+            </div>
+            <!--<div layout-padding>-->
+                <!--<md-divider md-colors="{'green'}"></md-divider>-->
+            <!--</div>-->
+
+            <div layout="row" layout-wrap layout-padding layout-align="center" class="intro">
+                <span>{{infoExchange}}</span>
+            </div>
+            <div layout="row" flex layout-margin layout-align="center">
+                <md-button href="/init_sesion" flex="70" class="md-raised md-primary" type="submit">
+                    <span><i class="material-icons">compare_arrows</i></span>
+                    {{titleExchangeButton}}
+                </md-button>
+            </div>
+        </div>
+    </md-content>
+</div>
