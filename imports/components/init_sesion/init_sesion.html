@@ -1,39 +1,31 @@
-<div id="initsesion">
-    <md-toolbar class="md-hue-2 section-toolbar">
-        <div class="md-toolbar-tools">
-            <h2>Inicio de Sesión</h2>
-        </div>
-    </md-toolbar>
-    <div layout="row" flex>
-        <md-content layout="column" flex layout-padding>
-            <div layout="row">
-                <h3>Datos de Acceso</h3>
-            </div>
-            <div layout="row" flex>
-                <div layout="column" flex>
-                    <form class="new-experience">
-                        <div layout="row" flex>
-                            <div layout="column" flex="100">
-                                <md-input-container class="register-input-container">
-                                    <label>Usuario</label>
-                                    <input type="text" name="username" ng-model="username" />
-                                </md-input-container>
-                            </div>
-                        </div>
-                        <div layout="row">
-                            <div layout="column" flex="100">
-                                <md-input-container class="register-input-container">
-                                    <label>Contraseña</label>
-                                    <input type="text" name="password" ng-model="password" />
-                                </md-input-container>
-                            </div>
-                        </div>
-                        <div layout="row" layout-align="center">
-                            <md-button class="md-raised md-primary" type="submit">Acceder</md-button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </md-content>
+
+<md-toolbar class="md-hue-2 section-toolbar">
+    <div class="md-toolbar-tools">
+        <h2>Inicio de Sesión</h2>
     </div>
+</md-toolbar>
+<div layout="column" flex="100" class="full-height">
+    <md-content layout-padding flex>
+        <h3>Datos de Acceso</h3>
+        <form class="new-experience">
+            <div layout="column" layout-align="center" flex="100">
+                <md-input-container class="register-input-container">
+                    <label>Usuario</label>
+                    <input type="text" name="username" ng-model="username" />
+                </md-input-container>
+            </div>
+            <div layout="column" layout-align="center">
+                <md-input-container class="register-input-container">
+                    <label>Contraseña</label>
+                    <input type="text" name="password" ng-model="password" />
+                </md-input-container>
+            </div>
+
+
+            <div layout="row" layout-align="center">
+                <md-button class="md-raised md-primary" type="submit">Acceder</md-button>
+            </div>
+        </form>
+    </md-content>
 </div>
+
