@@ -6,6 +6,7 @@ import uiRouter from 'angular-ui-router';
 // Custom Components
 import register from '../imports/components/register/register';
 import header from '../imports/components/header/header';
+import menu from '../imports/components/menu/menu';
 import example from '../imports/components/example/example';
 import viewIndex from '../imports/components/view_index/view_index';
 import jobInfo from '../imports/components/job_info/jobInfo';
@@ -18,6 +19,7 @@ angular.module('proTic', [
     uiRouter,
     example.name,
     header.name,
+    menu.name,
     register.name,
     viewIndex.name,
     jobInfo.name,
