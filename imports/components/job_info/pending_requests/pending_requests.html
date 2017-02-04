@@ -1,6 +1,71 @@
-<div layout-padding >
-    <h2 class="md-headline">Solicitudes pendientes</h2>
-    <p class="md-body-1">
-        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
-    </p>
+<div layout="column" flex>
+    <div layout="row">
+        <md-autocomplete
+          md-selected-item="ctrl.selectedItem"
+          md-search-text="ctrl.searchText"
+          md-items="item in []"
+          md-item-text="item.display"
+          placeholder="Búsqueda"
+          flex></md-autocomplete>
+    </div>
+    <div layout="row" layout-padding></div>
+    <div layout="row" layout-padding="">
+        <div layout="column" flex="50" >
+            <md-checkbox ng-model="$ctrl.filters.sended">
+                <span>Enviadas</span>
+            </md-checkbox>
+        </div>
+        <div layout="column" flex="50">
+            <md-checkbox ng-model="$ctrl.filters.received">
+                <span>Recibidas</span>
+            </md-checkbox>
+        </div>
+    </div>
+    <md-divider></md-divider>
+    <div layout="row" flex>
+        <div layout="column" flex>
+
+
+        <md-card ng-repeat="elem in $ctrl.elems">
+            <md-card-title>
+                <md-card-title-text ng-if="elem.type === 'received'">
+                    <span class="md-headline">Solicitud recibida</span>
+                    <span class="md-subhead">
+                        <span>De</span>
+                        <span ng-if="elem.from" ng-bind="elem.from + ','"></span>
+                        <span ng-if="!elem.from">anónimo,</span>
+                        <span>el</span>
+                        <span ng-bind="elem.date | date:'dd/MM/yyyy'"></span>
+                    </span>
+                </md-card-title-text>
+                <md-card-title-text ng-if="elem.type === 'sended'">
+                    <span class="md-headline">Solicitud enviada</span>
+                    <span class="md-subhead">
+                        <span>A</span>
+                        <span ng-if="elem.to" ng-bind="elem.to + ','"></span>
+                        <span ng-if="!elem.to">anónimo,</span>
+                        <span>el</span>
+                        <span ng-bind="elem.date | date:'dd/MM/yyyy'"></span>
+                    </span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-actions layout="row" layout-align="start center" ng-if="elem.state === 'waiting'">
+                <md-button ng-disabled="true">Esperando respuesta</md-button>
+            </md-card-actions>
+            <md-card-actions layout="row" layout-align="start center" ng-if="elem.state === 'ready'">
+                <md-button class="md-accent md-hue-3">Negociar</md-button>
+                <md-card-icon-actions>
+                    <md-button class="md-icon-button md-warn md-raised" aria-label="Favorite">
+                        <i class="material-icons">close</i>
+                    </md-button>
+                    <md-button class="md-icon-button md-primary md-raised" aria-label="Share">
+                        <i class="material-icons">check</i>
+                    </md-button>
+                </md-card-icon-actions>
+            </md-card-actions>
+
+        </md-card>
+        </div>
+    </div>
+
 </div>

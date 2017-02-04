@@ -1,0 +1,37 @@
+<div ng-controller="MenuController">
+    <md-list flex ng-cloak>
+        <md-subheader>Home</md-subheader>
+        <md-list-item ng-repeat="option in menu.home.options">
+            <div class="md-list-item-text" layout="column">
+                <p class="md-subhead" ng-bind="option.name"></p>
+            </div>
+        </md-list-item>
+    </md-list>
+    <md-divider></md-divider>
+    <md-list flex>
+        <md-subheader>Mi perfil</md-subheader>
+        <md-list-item ng-repeat="option in menu.profile.options">
+            <div class="md-list-item-text" layout="column">
+                <p ng-bind="option.name"></p>
+            </div>
+        </md-list-item>
+    </md-list>
+    <md-divider></md-divider>
+    <md-list flex>
+        <md-subheader>Acerca de</md-subheader>
+        <md-list-item ng-repeat="option in menu.about.options">
+            <div class="md-list-item-text" layout="column">
+                <p ng-bind="option.name"></p>
+            </div>
+        </md-list-item>
+    </md-list>
+    <md-divider></md-divider>
+    <md-list flex>
+        <md-subheader>Sesión</md-subheader>
+        <md-list-item ng-repeat="option in menu.session.options">
+            <div class="md-list-item-text" layout="column">
+                <p ng-bind="option.name"></p>
+            </div>
+        </md-list-item>
+    </md-list>
+</div>
