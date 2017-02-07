@@ -1,0 +1,47 @@
+<md-toolbar class="md-hue-2 section-toolbar">
+    <div class="md-toolbar-tools">
+        <h2>Búsqueda</h2>
+    </div>
+</md-toolbar>
+<md-content layout="column" class="full-height" flex layout-padding ng-controller="SearcherCtrl">
+    <form name="searchForm" ng-submit="$ctrl.search()">
+        <div layout="column" flex="100">
+            <md-list flex ng-cloak>
+                <h3 ng-bind="searcher.text.title"></h3>
+                 <md-list-item flex ng-repeat="option in searcher.text.options">
+                     <md-container flex="10">
+                        <i class="material-icons" ng-bind="option.icon"></i>
+                    </md-container>
+                    <md-input-container flex="80" class="md-block">
+                            <label ng-bind="option.name"></label>
+                            <input type="text" name="option.name"/>
+                    </md-input-container>
+                    
+                </md-list-item>
+                <h3 ng-bind="searcher.text.title"></h3>
+                <md-list-item layout="row" flex>
+                    <md-container flex="10">
+                        <i class="material-icons" ng-bind="searcher.time.icon"></i>
+                    </md-container>
+                        <md-input-container flex="40" ng-repeat="option in searcher.time.options" min="0">
+                            <label ng-bind="option.name"></label>
+                            <input type="number" step="any" name="option.name"/>
+                        </md-input-container>
+                </md-list-item>
+                <h3 ng-bind="searcher.text.title"></h3>
+                <md-list-item layout="row" flex>
+                    <md-container flex="10">
+                        <i class="material-icons" ng-bind="searcher.salary.icon"></i>
+                    </md-container>
+                    <md-input-container flex="40" class="inline" ng-repeat="option in searcher.salary.options" min="0">
+                        <label ng-bind=option.name></label>
+                        <input type="number" step="any" name=option.name/>
+                    </md-input-container>
+                </md-list-item>
+            </md-list>
+            <div layout="row" layout-align="center">
+                <md-button href="/" class="md-raised md-primary" type="submit" ng-bind="searcher.button.title"></md-button>
+            </div>
+        </div>
+    </form>
+</md-content>

@@ -16,6 +16,8 @@ import welcome from '../imports/components/welcome/welcome';
 import initSesion from '../imports/components/init/init_sesion';
 import registerSuccess from '../imports/components/register/success';
 import home from '../imports/components/init/home';
+import profileSearcher from '../imports/components/profile_searcher/searcher';
+
 // Declaración del módulo principal de la aplicación, con sus dependencias. Registro de los componentes de prueba (config, controller).
 angular.module('proTic', [
     angularMeteor,
@@ -32,6 +34,7 @@ angular.module('proTic', [
     initSesion.name,
     registerSuccess.name,
     home.name,
+    profileSearcher.name,
     ngMaterial
 ])
 .config(routeConfig)
@@ -74,6 +77,7 @@ function routeConfig($locationProvider, $urlRouterProvider, $stateProvider) {
     $stateProvider.state('initSesion', {url: '/init_sesion', template: '<init-sesion></init-sesion>'});
     $stateProvider.state('success', {url: '/register_success', template: '<success></success>'});
     $stateProvider.state('home', {url: '/home', template: '<home></home>'});
+    $stateProvider.state('searcher', {url: '/searcher', template: '<searcher></searcher>'});
 }
 
 

@@ -1,0 +1,41 @@
+import angular from 'angular';
+import angularMeteor from 'angular-meteor';
+import template from './searcher.html';
+
+export default angular.module('profileSearcher', [
+  angularMeteor
+]).component('searcher', {
+    templateUrl: 'imports/components/profile_searcher/searcher.html',
+}).controller("SearcherCtrl", SearcherCtrl);
+
+function SearcherCtrl($scope) {
+    $scope.searcher = {
+        text: {
+            title: "Características del Puesto",
+            options: [
+                {name: "Perfil", icon: "assignment_ind"},
+                {name: "Tecnología", icon: "build"},
+                {name: "Empresa", icon: "work"}
+            ]
+        },
+        time: {
+            title: "Duración",
+            icon : "history",
+            options: [
+                {name: "Meses"},
+                {name: "Años"}     
+            ]
+        },
+        salary: {
+            title: "Salario",
+            icon :"euro_symbol",
+            options: [
+                {name: "Mínimo"},
+                {name: "Máximo"}     
+            ]
+        },
+        button: {
+            title: "Buscar"
+        }
+    };
+}
