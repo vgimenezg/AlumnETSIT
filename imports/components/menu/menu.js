@@ -2,42 +2,41 @@ import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import template from './menu.html';
 
-menuController.$inject = ["$scope"];
+menuController.$inject = ["$scope", "$window"];
 export default angular.module('menu', [
   angularMeteor
 ]).component('sidenavMenu', {
     templateUrl: 'imports/components/menu/menu.html',
 }).controller("MenuController", menuController);
 
-function menuController($scope) {
+function menuController($scope, $window) {
     $scope.menu = {
         home: {
-            name: "Home",
             options: [
-                {name: "Buscador de perfiles"},
-                {name: "Área de intercambio"}
+                {name: "Buscador de perfiles", icon:  "people"},
+                {name: "Área de intercambio", icon:  "repeat", href: "/interchange_area"}
             ]
         },
         profile: {
-            name: "Mi perfil",
             options: [
-                {name: "Editar mis datos de acceso"},
-                {name: "Editar datos o privacidad"},
-                {name: "Añadir experiencia"},
+                {name: "Editar mis datos de acceso", icon:  "edit"},
+                {name: "Editar datos y privacidad", icon:  "person"},
+                {name: "Añadir experiencia", icon:  "add_circle", href: "/fullexperience"},
             ]
         },
         about: {
-            name: "Acerca de",
             options: [
-                {name: "Términos y condiciones"},
-                {name: "Info control de privacidad"}
+                {name: "Términos y condiciones", icon:  "info"},
+                {name: "Información control de privacidad", icon: "lock"}
             ]
         },
         session: {
-            name: "Sesión",
             options: [
-                {name: "Cerrar sesión"},
+                {name: "Cerrar sesión", icon: "exit_to_app"},
             ]
         }
     };
+    $scope.goTo = function (href) {
+        if(href) $window.location.href = href;
+    }
 }
