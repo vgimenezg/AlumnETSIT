@@ -15,7 +15,7 @@ function SearcherCtrl($scope) {
             options: [
                 {name: "Perfil", icon: "assignment_ind"},
                 {name: "Tecnología", icon: "build"},
-                {name: "Empresa", icon: "work"}
+                {name: "Empresa", icon: "business_center"}
             ]
         },
         time: {
@@ -35,7 +35,9 @@ function SearcherCtrl($scope) {
             ]
         },
         button: {
-            title: "Buscar"
+            title: "Buscar",
+            link: "/searcher/results",
+            icon: "search"
         }
     };
 }
