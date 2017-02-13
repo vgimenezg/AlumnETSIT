@@ -5,7 +5,7 @@ export default class InfoDetailsCtrl {
     constructor($scope) {
         $scope.viewModel(this);
         this.info = {
-            name: "Paco",
+            from: "Paco",
             sended: {
                 job: {name: "Puesto", value: "Programador"},
                 company: {name: "Empresa", value: "Atos"},
