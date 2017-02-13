@@ -60,6 +60,7 @@ function routeConfig($locationProvider, $urlRouterProvider, $stateProvider) {
     $urlRouterProvider.otherwise('/index');
     $stateProvider.state('viewIndex', {url: '/index', template: '<view-index></view-index>'});
     $stateProvider.state('infoRequest', {url: '/info_request', template: '<info-request></info-request>'});
+    $stateProvider.state('infoDetails', {url: '/info_details', template: '<info-details></info-details>'});
     $stateProvider.state('interchangeArea', {url: '/interchange_area', template: '<interchange-area></interchange-area>'});
     $stateProvider.state('register', {url: '/register', template: '<register></register>'});
     $stateProvider.state('fullexperience', {url: '/fullexperience', template: '<fullexperience></fullexperience>'});
