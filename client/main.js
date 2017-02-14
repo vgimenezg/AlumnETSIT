@@ -10,6 +10,7 @@ import menu from '../imports/components/menu/menu';
 import example from '../imports/components/example/example';
 import viewIndex from '../imports/components/view_index/view_index';
 import jobInfo from '../imports/components/job_info/jobInfo';
+import profiles from '../imports/components/profiles/profilesResults';
 import experience from '../imports/components/experience/experience';
 import fullexperience from '../imports/components/experience/fullexperience';
 
@@ -20,6 +21,7 @@ angular.module('proTic', [
     example.name,
     header.name,
     menu.name,
+    profiles.name,
     register.name,
     viewIndex.name,
     jobInfo.name,
@@ -61,6 +63,7 @@ function routeConfig($locationProvider, $urlRouterProvider, $stateProvider) {
     $stateProvider.state('viewIndex', {url: '/index', template: '<view-index></view-index>'});
     $stateProvider.state('infoRequest', {url: '/info_request', template: '<info-request></info-request>'});
     $stateProvider.state('infoDetails', {url: '/info_details', template: '<info-details></info-details>'});
+    $stateProvider.state('profilesResults', {url: '/profiles_results', template: '<profiles-results></profiles-results>'});
     $stateProvider.state('interchangeArea', {url: '/interchange_area', template: '<interchange-area></interchange-area>'});
     $stateProvider.state('register', {url: '/register', template: '<register></register>'});
     $stateProvider.state('fullexperience', {url: '/fullexperience', template: '<fullexperience></fullexperience>'});

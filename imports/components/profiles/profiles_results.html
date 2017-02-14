@@ -1,0 +1,30 @@
+<div>
+    <md-subheader>Criterios</md-subheader>
+    <div>
+        <md-chips ng-model="$ctrl.technologies" name="techName" readonly="false" md-removable="true">
+        </md-chips>
+    </div>
+</div>
+<div>
+    <md-subheader>Resultados</md-subheader>
+    <md-card ng-repeat="result in $ctrl.results">
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">
+                    <i class="material-icons">person</i>
+                    <span ng-bind="result[0].name"></span>:
+                    <span ng-bind="result[0].value"></span>
+                </span>
+            </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+            <div ng-repeat="property in result" ng-if="$index !== 0">
+                <span ng-bind="property.name"></span>:
+                <span ng-bind="property.value"></span>
+            </div>
+        </md-card-content>
+        <md-card-actions layout="row" layout-align="end center">
+            <md-button class="md-accent">Solicitar más información</md-button>
+        </md-card-actions>
+    </md-card>
+</div>
