@@ -23,7 +23,7 @@ function SearcherCtrl($scope) {
             icon : "history",
             options: [
                 {name: "Meses"},
-                {name: "Años"}     
+                {name: "Años"}
             ]
         },
         salary: {
@@ -31,12 +31,12 @@ function SearcherCtrl($scope) {
             icon :"euro_symbol",
             options: [
                 {name: "Mínimo"},
-                {name: "Máximo"}     
+                {name: "Máximo"}
             ]
         },
         button: {
             title: "Buscar",
-            link: "/searcher/results",
+            link: "/profiles_results",
             icon: "search"
         }
     };

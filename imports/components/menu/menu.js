@@ -13,7 +13,7 @@ function menuController($scope, $window) {
     $scope.menu = {
         home: {
             options: [
-                {name: "Buscador de perfiles", icon:  "people"},
+                {name: "Buscador de perfiles", icon:  "people", href: "/searcher"},
                 {name: "Área de intercambio", icon:  "repeat", href: "/interchange_area"}
             ]
         },
@@ -32,7 +32,7 @@ function menuController($scope, $window) {
         },
         session: {
             options: [
-                {name: "Cerrar sesión", icon: "exit_to_app"},
+                {name: "Cerrar sesión", icon: "exit_to_app", href: "/welcome"},
             ]
         }
     };
