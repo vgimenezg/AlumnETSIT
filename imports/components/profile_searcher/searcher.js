@@ -37,7 +37,7 @@ function SearcherCtrl($scope) {
         button: {
             title: "Buscar",
             link: "/profiles_results",
-            icon: "search"
+            icon: "keyboard_arrow_right"
         }
     };
 }
