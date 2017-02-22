@@ -12,6 +12,7 @@ import viewIndex from '../imports/components/view_index/view_index';
 import jobInfo from '../imports/components/job_info/jobInfo';
 import profiles from '../imports/components/profiles/profilesResults';
 import experience from '../imports/components/experience/experience';
+import experienceSuccess from '../imports/components/experience/experience_success';
 import fullexperience from '../imports/components/experience/fullexperience';
 import welcome from '../imports/components/welcome/welcome';
 import initSesion from '../imports/components/init/init_sesion';
@@ -37,6 +38,7 @@ angular.module('proTic', [
     registerSuccess.name,
     home.name,
     profileSearcher.name,
+    experienceSuccess.name,
     ngMaterial
 ])
 .config(routeConfig)
@@ -82,6 +84,7 @@ function routeConfig($locationProvider, $urlRouterProvider, $stateProvider) {
     $stateProvider.state('success', {url: '/register_success', template: '<success></success>'});
     $stateProvider.state('home', {url: '/home', template: '<home></home>'});
     $stateProvider.state('searcher', {url: '/searcher', template: '<searcher></searcher>'});
+    $stateProvider.state('experienceSuccess', {url: '/experience_success', template: '<experience-success></experience-success>'});
 }
 
 
