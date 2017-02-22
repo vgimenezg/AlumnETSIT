@@ -69,7 +69,7 @@ function materialConfig($mdIconProvider, $mdThemingProvider) {
 function routeConfig($locationProvider, $urlRouterProvider, $stateProvider) {
     'ngInject';
     $locationProvider.html5Mode(true);
-    $urlRouterProvider.otherwise('/index');
+    $urlRouterProvider.otherwise('/welcome');
     $stateProvider.state('viewIndex', {url: '/index', template: '<view-index></view-index>'});
     $stateProvider.state('infoRequest', {url: '/info_request', template: '<info-request></info-request>'});
     $stateProvider.state('infoDetails', {url: '/info_details', template: '<info-details></info-details>'});

@@ -15,7 +15,9 @@
                 <md-button class="md-icon-button" aria-label="Menu" ng-click="openMenu()">
                     <i class="material-icons">menu</i>
                 </md-button>
-                <p class="header-title" ng-bind="title"></p>
+                <p class="header-title">
+                    <a ng-bind="title" href="/home"></a>
+                </p>
                 <p class="header-subtitle" ng-bind="subtitle"></p>
             </div>
         </md-toolbar>
