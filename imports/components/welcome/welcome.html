@@ -1,0 +1,20 @@
+<md-content id="welcome-template" md-colors="{background: 'green-50'}" layout="row" class="full-height" ng-controller="welcomeCtrl">
+    <div layout="column" layout-fill layout-align="center">
+        <div layout="row" layout-wrap layout-padding layout-align="center" class="logo">
+            <img src="capandmoney.png" />
+        </div>
+        <div layout="row" layout-wrap layout-padding layout-align="center" class="intro">
+            <div layout="column" layout-margin>
+                 <span intro></span>  
+            </div>
+        </div>
+        <div layout="row" layout-xs="column" layout-margin layout-align="center" class="buttons">
+            <div layout="column" layout-xs="row" flex layout-align="center" ng-repeat="option in button.options">
+                <md-button href={{option.link}} flex="50" class="md-raised md-primary" aria-label={{option.label}}>
+                    <md-icon style="margin-right: 5px;"><i class="material-icons" ng-bind="option.icon"></i></md-icon>
+                    <span ng-bind="option.label"> </span>
+                </md-button> 
+            </div>
+        </div>
+    </div>
+</md-content>

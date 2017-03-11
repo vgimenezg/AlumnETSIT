@@ -1,0 +1,25 @@
+
+<md-content layout="row" class="full-height" ng-controller="addExperienceCtrl">
+    <div layout="column" layout-fill layout-align="center">
+        <div layout="row" layout-wrap layout-padding layout-align="center" class="intro">
+            <md-icon  class="md-accent">
+                    <i class="material-icons md-48" ng-bind="greeting.icon"></i>
+            </md-icon>
+        </div>
+        <div layout="row" layout-wrap layout-padding layout-align="center" class="intro">
+            <div layout="column" layout-margin layout-align="center">
+                <span><h2 class="md-headline" center>{{ greeting.text }}</h2></span>
+                <span ng-bind="info.first"></span>
+                <span ng-bind="info.second"></span>
+            </div>
+        </div>
+        <div layout="row" layout-xs="column" layout-margin layout-align="center" class="buttons">
+            <div layout="column" layout-xs="row" flex layout-align="center" ng-repeat="option in button.options">
+                <md-button href={{option.link}} flex="50" class="md-raised md-primary" aria-label={{option.label}}>
+                    <md-icon style="margin-right: 5px;"><i class="material-icons" ng-bind="option.icon"></i></md-icon>
+                    <span ng-bind="option.label"> </span>
+                </md-button> 
+            </div>
+        </div>
+    </div>
+</md-content>

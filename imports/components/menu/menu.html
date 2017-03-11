@@ -1,0 +1,11 @@
+<div ng-controller="MenuController">
+    <md-list flex>
+        <div ng-repeat="section in menu">
+        <md-subheader ng-repeat="option in section.options" class="md-clickable" md-ink-ripple="true" ng-click="goTo(option.href)">
+            <md-icon style="margin-right: 5px;"><i class="material-icons" ng-bind="option.icon"></i></md-icon>
+            <span ng-bind="option.name"></span>
+        </md-subheader>
+        <md-divider></md-divider>
+        </div>
+    </md-list>
+</div>

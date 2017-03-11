@@ -1,7 +1,15 @@
-<md-content layout="row" flex layout-padding>
+<md-toolbar class="md-hue-2 section-toolbar">
+    <div class="md-toolbar-tools">
+        <h2>Registro</h2>
+    </div>
+</md-toolbar>
+<md-content layout="row" flex layout-padding ng-controller="RegisterCtrl">
     <div layout="column" flex>
-        <div layout="row" layout-padding>
+        <div layout="row">
             <div layout="column" layout-fill >
+                <div layout="row" layout-wrap >
+                    <h3>Datos de Acceso</h3>
+                </div>
                 <form class="new-experience" > <!-- ng-submit="$ctrl.addUser()" -->
                     <div layout="row" layout-wrap >
                         <div layout="column" flex="66">
@@ -27,102 +35,11 @@
                         </md-input-container>
                         </div>
                      </div>
-                    
-                    <div layout="row" layout-wrap >
-                       <div layout="column" flex="66">
-                            <md-input-container class="register-input-container">
-                            <label>Perfil Profesional Actual</label>
-                            <input type="text" name="perfil" ng-model="perfil"/>
-                        </md-input-container>
-                        </div>  
-                        <div layout="column" ng-controller="SwitchCtrl" flex="33">
-                            <md-switch ng-model="data.privacidad" ng-change="onChange(data.privacidad)">
-                                    {{ message }}
-                            </md-switch> 
-                        </div>
-                     </div>
-                    <div layout="row" layout-wrap>
-                       <div layout="column" flex="66" ng-controller="TecnhologyCtrl" ng-cloak>
-                              <md-input-container class="register-input-container selectdemoSelectHeader">
-                                <label>Tecnologías Usadas</label>
-                                <md-select ng-model="selectedTecnhology"
-                                           md-on-close="clearSearchTerm()"
-                                           data-md-container-class="selectdemoSelectHeader"
-                                           multiple>
-                                  <md-select-header class="demo-select-header">
-                                    <input ng-model="searchTerm"
-                                           type="search"
-                                           placeholder="Búsqueda de tecnologías..."
-                                           class="demo-header-searchbox md-text">
-                                  </md-select-header>
-                                  <md-optgroup label="Tecnologias">
-                                    <md-option ng-value="techno" ng-repeat="techno in technologies |
-                                      filter:searchTerm">{{techno}}</md-option>
-                                  </md-optgroup>
-                                </md-select>
-                              </md-input-container>
-                        </div>
-                        <div layout="column" ng-controller="SwitchCtrl" flex="33">
-                            <md-switch ng-model="data.privacidad" ng-change="onChange(data.privacidad)">
-                                    {{ message }}
-                            </md-switch> 
-                        </div>
-                    </div>
-                    <div layout="row" layout-wrap>
-                        <div layout="column" flex="66">
-                            <md-input-container class="register-input-container">
-                                <label>Empresa</label>
-                                <input type="text" name="empresa" ng-model="empresa"/>
-                            </md-input-container>
-                        </div>
-                        <div layout="column" ng-controller="SwitchCtrl"  flex="33">
-                            <md-switch ng-model="data.privacidad" ng-change="onChange(data.privacidad)">
-                                    {{ message }}
-                            </md-switch> 
-                        </div>
-                    </div>
-                    <div layout="row" layout-wrap>
-                        <div layout="column" flex="66">
-                            <md-datepicker id="antiguedad-datepicker" class="register-input-container" ng-model="myDate" md-placeholder="Fecha Antiguedad" md-min-date="minDate" md-max date="maxDate">
-                            </md-datepicker>
-                               
-                        </div>
-                        <div layout="column" ng-controller="SwitchCtrl"  flex="33">
-                            <md-switch ng-model="data.privacidad" ng-change="onChange(data.privacidad)">
-                                    {{ message }}
-                            </md-switch> 
-                        </div>
-                    </div>
-                    <div layout="row" layout-wrap>
-                        <div layout="column" flex="66">
-                            <md-input-container class="register-input-container">
-                                <label>Salario bruto anual(€)</label>
-                                <input type="text" name="salario" ng-model="salario"/>
-                            </md-input-container> 
-                        </div>
-                        <div layout="column" ng-controller="SwitchCtrl" flex="33">
-                            <md-switch ng-model="data.privacidad" ng-change="onChange(data.privacidad)">
-                                    {{ message }}
-                            </md-switch> 
-                        </div>
-                     </div>
-                    <div layout="row" layout-wrap>
-                        <div layout="column" flex="66">
-                             <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb5" class="md-primary">
-                                Vincular experiencia a mi perfil
-                            </md-checkbox>
-                        </div>
-                     </div>  
-                     <div layout="row" layout-wrap>
-                        <div layout="column" flex="66">
-                            <div class="valign-center">
-                                <i class="material-icons add-experience-icon">add</i>
-                                <span> Añadir experiencia anterior</span>
-                            </div> 
-                        </div>
-                    </div>  
-                     <div layout="row" layout-align="center">
-                          <md-button class="md-raised md-primary" type="submit">Terminar Registro</md-button> 
+                    <experience></experience> 
+                     <div layout="row" flex layout-align="center">
+                        <md-button href="register_success" flex="60" class="md-raised md-primary" type="submit">Terminar Registro
+                         <md-icon style="margin-left: 5px;"><i class="material-icons">keyboard_arrow_right</i></md-icon>
+                        </md-button>
                     </div>
                 </form>   
             </div>

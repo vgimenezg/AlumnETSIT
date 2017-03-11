@@ -1,22 +1,23 @@
 <div ng-controller="headerController" id="header">
-    <!-- Menu -->
-    <md-sidenav md-whiteframe="21" class="md-sidenav-left fixed" md-component-id="menu-sidenav">
-        <md-toolbar class="md-hue-2">
+     <!-- Menu -->
+    <md-sidenav md-whiteframe="4" class="md-sidenav-left fixed" md-component-id="menu-sidenav">
+        <md-toolbar class="md-hue-1" md-whiteframe="2">
             <div class="md-toolbar-tools">
                 <h2>Menú</h2>
             </div>
         </md-toolbar>
+        <sidenav-menu></sidenav-menu>
     </md-sidenav>
-    
-    <!-- Toolbar -->
     <div layout="row" flex>
-        <!-- Barra de navegación -->
+         <!-- Toolbar -->
         <md-toolbar md-whiteframe="2" class="fixed">
             <div class="md-toolbar-tools">
                 <md-button class="md-icon-button" aria-label="Menu" ng-click="openMenu()">
-                    <md-icon md-svg-icon="navigation:ic_menu_24px"></md-icon>
+                    <i class="material-icons">menu</i>
                 </md-button>
-                <p class="header-title" ng-bind="title"></p>
+                <p class="header-title">
+                    <a ng-bind="title" href="/home"></a>
+                </p>
                 <p class="header-subtitle" ng-bind="subtitle"></p>
             </div>
         </md-toolbar>

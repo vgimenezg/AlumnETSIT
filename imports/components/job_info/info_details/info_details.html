@@ -1,0 +1,41 @@
+<md-card>
+    <md-card-title>
+        <md-card-title-text>
+            <span class="md-headline">Información obtenida</span>
+            <span class="md-subhead">
+                <span>De:</span>
+                <span ng-if="$ctrl.info.from" ng-bind="$ctrl.info.from"></span>
+                <span ng-if="!$ctrl.info.from">Anónimo</span>
+            </span>
+        </md-card-title-text>
+    </md-card-title>
+    <md-card-content>
+        <div layout="row" ng-repeat="property in $ctrl.info.received">
+            <md-input-container flex>
+                <label ng-bind="property.name"></label>
+                <input ng-model="property.value" readonly="true"/>
+            </md-input-container>
+        </div>
+    </md-card-content>
+ </md-card>
+ <md-divider></md-divider>
+ <md-card>
+     <md-card-title>
+         <md-card-title-text>
+             <span class="md-headline">Información cedida</span>
+             <span class="md-subhead">
+                 <span>A:</span>
+                 <span ng-if="$ctrl.info.from" ng-bind="$ctrl.info.from"></span>
+                 <span ng-if="!$ctrl.info.from">Anónimo</span>
+             </span>
+         </md-card-title-text>
+     </md-card-title>
+     <md-card-content>
+         <div layout="row" ng-repeat="property in $ctrl.info.sended">
+             <md-input-container>
+                 <label ng-bind="property.name"></label>
+                 <input ng-model="property.value" readonly="true"/>
+             </md-input-container>
+         </div>
+     </md-card-content>
+  </md-card>
