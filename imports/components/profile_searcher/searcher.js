@@ -13,7 +13,7 @@ function SearcherCtrl($scope) {
         text: {
             title: "Características del Puesto",
             options: [
-                {name: "Perfil", icon: "assignment_ind"},
+                {name: "Perfil / Función", icon: "assignment_ind"},
                 {name: "Tecnología", icon: "build"},
                 {name: "Empresa", icon: "business_center"}
             ]
