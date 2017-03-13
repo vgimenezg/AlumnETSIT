@@ -14,14 +14,14 @@ export default angular.module('experience', [angularMeteor])
 
 function SwitchCtrl($scope) {
     $scope.data = {
-        privacidad: 'Público',
+        privacidad: 'Visible',
     };
-    $scope.message = 'Privado';
+    $scope.message = 'Oculto';
     $scope.onChange = function(state) {
       if (state) {
-          $scope.message = 'Público';
+          $scope.message = 'Visible';
       }else {
-          $scope.message = 'Privado';
+          $scope.message = 'Oculto';
       }
     }
 }
