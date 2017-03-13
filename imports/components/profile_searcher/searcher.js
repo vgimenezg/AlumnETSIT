@@ -10,6 +10,11 @@ export default angular.module('profileSearcher', [
 
 function SearcherCtrl($scope) {
     $scope.searcher = {
+        user: {
+            options: [
+                {name: "Nombre del Usuario", icon: "perm_identity"},
+            ]
+        },
         text: {
             title: "Características del Puesto",
             options: [
