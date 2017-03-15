@@ -2,6 +2,23 @@
     <md-divider></md-divider>
     <h3>Experiencia Profesional</h3>
     
+    <!-- ALIAS -->
+    <div layout="row" layout-wrap>
+       <div layout="column" flex="66">
+            <md-input-container class="register-input-container">
+                <label>Alias</label>
+                <input type="text" name="empresa" ng-model="empresa"/>
+            </md-input-container>
+        </div>
+        <div layout="column" flex="33" ng-controller="AliasCtrl">
+            <md-button ng-click="openToast()" class="md-accent text-left">
+            <md-icon style="margin-right: 5px;">
+                <i class="material-icons" ng-bind=icon></i>
+            </md-icon>
+        </md-button>
+        </div>
+    </div>
+    
     <!-- PERFIL -->
     <div layout="row" layout-wrap>
        <div layout="column" flex="66" ng-controller="ProfileCtrl as ctrl">
@@ -102,7 +119,7 @@
      </div>
     
     <div layout="row" layout-wrap>
-        <md-checkbox>
+        <md-checkbox class="link-experience-checkbox">
         <span> Vincular experiencia a mi perfil</span>
         </md-checkbox>
     </div>

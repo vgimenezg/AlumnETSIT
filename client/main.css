@@ -7,6 +7,14 @@
     height: 100%;
 }
 
+.text-left {
+    text-align: left !important;
+}
+
+.text-right {
+    text-align: right!important;
+}
+
 .material-icons.md-18 {
   font-size: 18px; height: 18px; width: 18px; }
 .material-icons.md-24 {
