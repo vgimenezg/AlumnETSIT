@@ -13,14 +13,14 @@ function menuController($scope, $window) {
     $scope.menu = {
         home: {
             options: [
-                {name: "Buscador de perfiles", icon:  "people", href: "/searcher"},
+                {name: "Buscador de perfiles", icon:  "search", href: "/searcher"},
                 {name: "Área de intercambio", icon:  "repeat", href: "/interchange_area"}
             ]
         },
         profile: {
             options: [
-                {name: "Editar mis datos de acceso", icon:  "edit"},
-                {name: "Editar datos y privacidad", icon:  "person"},
+                {name: "Editar mis datos de acceso", icon:  "person"},
+                {name: "Editar experiencias", icon:  "edit"},
                 {name: "Añadir experiencia", icon:  "add_circle", href: "/fullexperience"},
             ]
         },
