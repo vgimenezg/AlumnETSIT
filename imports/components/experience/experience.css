@@ -12,3 +12,11 @@
 #fullexperience #experience-template md-divider {
     display:none;  
 }
+
+.custom-toast {
+    position: fixed;
+}
+
+.custom-toast .md-toast-text {
+    margin: 10px;
+}
