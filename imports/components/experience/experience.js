@@ -6,11 +6,24 @@ import './experience.css'
 export default angular.module('experience', [angularMeteor])
     .component('experience', { templateUrl: 'imports/components/experience/experience.html',
 })
+    .controller("AliasCtrl", AliasCtrl)
     .controller("SwitchCtrl", SwitchCtrl)
     .controller("DatepickerCtrl",DatepickerCtrl)
     .controller("TecnhologyCtrl",TecnhologyCtrl)
-    .controller('ProfileCtrl', ProfileCtrl);
+    .controller('ProfileCtrl', ProfileCtrl)
+    .controller('AliasCtrl', AliasCtrl);     
 
+
+function AliasCtrl($scope, $mdToast) {
+    
+  var info = 'Para gestionar más fácilmente tus experiencias, añade un alias. Sólo tú podrás verlo'   
+  $scope.icon = 'info';
+  
+    $scope.openToast = function($event) {
+        //$mdToast.show($mdToast.simple().textContent(info));
+        $mdToast.showSimple(info);
+  };
+}
 
 function SwitchCtrl($scope) {
     $scope.data = {

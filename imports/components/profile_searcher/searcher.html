@@ -7,6 +7,16 @@
     <form name="searchForm" ng-submit="$ctrl.search()">
         <div layout="column" flex="100">
             <md-list flex ng-cloak>
+                <md-list-item flex ng-repeat="option in searcher.user.options">
+                     <md-container flex="10">
+                        <i class="material-icons" ng-bind="option.icon"></i>
+                    </md-container>
+                    <md-input-container flex="80" class="md-block">
+                            <label ng-bind="option.name"></label>
+                            <input type="text" name="option.name"/>
+                    </md-input-container>
+                    
+                </md-list-item>
                 <h3 ng-bind="searcher.text.title"></h3>
                  <md-list-item flex ng-repeat="option in searcher.text.options">
                      <md-container flex="10">
@@ -16,7 +26,6 @@
                             <label ng-bind="option.name"></label>
                             <input type="text" name="option.name"/>
                     </md-input-container>
-                    
                 </md-list-item>
                 <h3 ng-bind="searcher.time.title"></h3>
                 <md-list-item layout="row" flex>
