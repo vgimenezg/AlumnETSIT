@@ -6,23 +6,45 @@ import './experience.css'
 export default angular.module('experience', [angularMeteor])
     .component('experience', { templateUrl: 'imports/components/experience/experience.html',
 })
-    .controller("AliasCtrl", AliasCtrl)
     .controller("SwitchCtrl", SwitchCtrl)
     .controller("DatepickerCtrl",DatepickerCtrl)
     .controller("TecnhologyCtrl",TecnhologyCtrl)
-    .controller('ProfileCtrl', ProfileCtrl)
-    .controller('AliasCtrl', AliasCtrl);     
+    .controller('ProfileCtrl', ProfileCtrl)   
+    .controller('ToastCtrl', ToastCtrl);     
 
 
-function AliasCtrl($scope, $mdToast) {
+
+function ToastCtrl($scope, $mdToast) {
+    $scope.icon = 'info_outline';
+    $scope.showAliasToast = function() {
+        var info = 'Para gestionar más fácilmente tus experiencias, añade un alias. Sólo tú podrás verlo' 
+        var toast = $mdToast.simple()
+                    .textContent(info)
+                    .action('OK')
+                    .hideDelay(90000)
+                    .toastClass("custom-toast")
+                    .highlightAction(true)
+         $mdToast.show(toast).then(function(response) {
+             if ( response == 'ok' ) {
+                $mdToast.hide()
+             }
+         });	
+    }
     
-  var info = 'Para gestionar más fácilmente tus experiencias, añade un alias. Sólo tú podrás verlo'   
-  $scope.icon = 'info';
-  
-    $scope.openToast = function($event) {
-        //$mdToast.show($mdToast.simple().textContent(info));
-        $mdToast.showSimple(info);
-  };
+    $scope.showLinkToast = function() {
+        var info = 'Vinculando tu experiencia a tu perfil, permites que todas tus experiencias aparezcan agrupadas. Así el resto de usuarios pueden tener una visión global de tu trayectoria.'   
+        var toast = $mdToast.simple()
+                    .textContent(info)
+                    .action('OK')
+                    .hideDelay(90000)   
+                    .toastClass("custom-toast")
+                    .highlightAction(true)
+         $mdToast.show(toast).then(function(response) {
+             if ( response == 'ok' ) {
+                $mdToast.hide()
+             }
+         });	
+    }     
 }
 
 function SwitchCtrl($scope) {

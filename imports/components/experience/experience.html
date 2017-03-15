@@ -10,10 +10,10 @@
                 <input type="text" name="empresa" ng-model="empresa"/>
             </md-input-container>
         </div>
-        <div layout="column" flex="33" ng-controller="AliasCtrl">
-            <md-button ng-click="openToast()" class="md-accent text-left">
+        <div layout="column" flex="33" ng-controller="ToastCtrl">
+            <md-button ng-click="showAliasToast()" class="md-accent text-left">
             <md-icon style="margin-right: 5px;">
-                <i class="material-icons" ng-bind=icon></i>
+                <i class="material-icons md-18" ng-bind=icon></i>
             </md-icon>
         </md-button>
         </div>
@@ -118,10 +118,17 @@
         </div>
      </div>
     
-    <div layout="row" layout-wrap>
-        <md-checkbox class="link-experience-checkbox">
-        <span> Vincular experiencia a mi perfil</span>
-        </md-checkbox>
+    <div layout="row" ng-controller="ToastCtrl">
+        <md-container layout-margin>
+            <md-checkbox class="link-experience-checkbox">
+                    <span> Vincular experiencia al perfil</span>
+                </md-checkbox>
+            <md-button ng-click="showLinkToast()" class="md-accent text-left">
+            <md-icon>
+                <i class="material-icons md-18" ng-bind=icon></i>
+            </md-icon>
+        </md-button>
+       </md-container>
     </div>
    
      <!-- Add NEW EXPERIENCE template when click -->
