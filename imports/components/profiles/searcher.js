@@ -5,7 +5,7 @@ import template from './searcher.html';
 export default angular.module('profileSearcher', [
   angularMeteor
 ]).component('searcher', {
-    templateUrl: 'imports/components/profile_searcher/searcher.html',
+    templateUrl: 'imports/components/profiles/searcher.html',
 }).controller("SearcherCtrl", SearcherCtrl);
 
 function SearcherCtrl($scope) {

@@ -18,7 +18,7 @@ import welcome from '../imports/components/welcome/welcome';
 import initSesion from '../imports/components/init/init_sesion';
 import registerSuccess from '../imports/components/register/success';
 import home from '../imports/components/init/home';
-import profileSearcher from '../imports/components/profile_searcher/searcher';
+import profileSearcher from '../imports/components/profiles/searcher';
 
 // Declaración del módulo principal de la aplicación, con sus dependencias. Registro de los componentes de prueba (config, controller).
 angular.module('proTic', [
