@@ -32,7 +32,7 @@ function ToastCtrl($scope, $mdToast) {
     }
     
     $scope.showLinkToast = function() {
-        var info = 'Vinculando tu experiencia a tu perfil, permites que todas tus experiencias aparezcan agrupadas. Así el resto de usuarios pueden tener una visión global de tu trayectoria.'   
+        var info = 'Vinculando esta experiencia a tu perfil, permites que todas tus experiencias aparezcan agrupadas y que el resto de usuarios tengan una visión global de tu trayectoria, cuando la compartas.'   
         var toast = $mdToast.simple()
                     .textContent(info)
                     .action('OK')
