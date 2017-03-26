@@ -6,6 +6,7 @@ import './experience.css'
 export default angular.module('experience', [angularMeteor])
     .component('experience', { templateUrl: 'imports/components/experience/experience.html',
 })
+    .controller("ExperienceCtrl", ExperienceCtrl)
     .controller("SwitchCtrl", SwitchCtrl)
     .controller("DatepickerCtrl",DatepickerCtrl)
     .controller("TecnhologyCtrl",TecnhologyCtrl)
@@ -13,7 +14,14 @@ export default angular.module('experience', [angularMeteor])
     .controller('ToastCtrl', ToastCtrl);     
 
 
+function ExperienceCtrl($scope, $element) {
+    $scope.newExperiencie = function(value) {
+        $scope.openExperience = value;
+    }
 
+  
+}
+                              
 function ToastCtrl($scope, $mdToast) {
     $scope.icon = 'info_outline';
     $scope.showAliasToast = function() {

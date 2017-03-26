@@ -1,18 +1,3 @@
-/* Experience tempalate styles */
-#experience-template {
-    margin-top: 15px;
-}
-
-#experience-template md-divider {
-    border-top-color: rgba(	0,128,0, 0.5);
-    
-}
-
-/* Fullexperience template styles */
-#fullexperience #experience-template md-divider {
-    display:none;  
-}
-
 .custom-toast {
     position: fixed;
 }

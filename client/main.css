@@ -15,6 +15,10 @@
     text-align: right!important;
 }
 
+md-divider.primary  {
+    border-top-color: rgba(	0,128,0, 0.5);
+}
+
 .material-icons.md-18 {
   font-size: 18px; height: 18px; width: 18px; }
 .material-icons.md-24 {
