@@ -4,7 +4,7 @@ import template from './profiles_results.html';
 class ProfilesResultsCtrl {
     constructor($scope) {
         $scope.viewModel(this);
-        this.technologies = ["Java", "Analista", "Indra", "Javascript"];
+        this.params = ["Java", "Analista", "Indra", "1 año y 3 meses", "28.000"];
         this.results = [[
             {name: "Categoría", value: "Analista"},
             {name: "Empresa", value: "Indra"},

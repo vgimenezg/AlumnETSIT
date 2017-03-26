@@ -89,20 +89,6 @@
         </div>
     </div>
     
-    <!-- ANTIGUEDAD -->
-    <div layout="row" layout-wrap>
-        <div layout="column" flex="66">
-            <md-datepicker id="antiguedad-datepicker" class="register-input-container" ng-model="myDate" md-placeholder="Fecha Antiguedad" md-min-date="minDate" md-max-date="maxDate">
-            </md-datepicker>
-
-        </div>
-        <div layout="column" ng-controller="SwitchCtrl"  flex="33">
-            <md-switch ng-model="data.privacidad" ng-change="onChange(data.privacidad)">
-                    {{ message }}
-            </md-switch> 
-        </div>
-    </div>
-    
     <!-- SALARIO -->
     <div layout="row" layout-wrap>
         <div layout="column" flex="66">
@@ -117,6 +103,18 @@
             </md-switch> 
         </div>
      </div>
+    
+    <!-- ANTIGUEDAD -->
+    <div layout="row">
+        <div layout="column" layout-wrap flex="50" >
+            <md-datepicker id="init-datepicker" class="register-input-container" ng-model="myDate" md-placeholder="Inicio" md-min-date="minDate" md-max-date="maxDate">
+            </md-datepicker>
+        </div>
+        <div layout="column"  flex="50" >
+            <md-datepicker id="end-datepicker" class="register-input-container" ng-model="myDate" md-placeholder="Fin" md-min-date="minDate" md-max-date="maxDate">
+            </md-datepicker>
+        </div>
+    </div>
     
     <div layout="row" ng-controller="ToastCtrl">
         <md-container layout-margin>
@@ -136,11 +134,11 @@
       <experience></experience>
     </script>
     <div layout="row" layout-wrap>
-        <md-button ng-click="currentTpl='/experience.html'" id="tpl-link" class="md-accent">
+        <md-button ng-click="experienceTpl='/experience.html'" id="tpl-link" class="md-accent">
             <md-icon style="margin-right: 5px;"><i class="material-icons">add</i></md-icon>
             Añadir experiencia
         </md-button>
     </div>
-    <div id="tpl-content" ng-include src="currentTpl"></div>
+    <div id="tpl-content" ng-include src="experienceTpl"></div>
 </div>
 
