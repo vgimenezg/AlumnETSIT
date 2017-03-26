@@ -18,8 +18,6 @@ function ExperienceCtrl($scope, $element) {
     $scope.newExperiencie = function(value) {
         $scope.openExperience = value;
     }
-
-  
 }
                               
 function ToastCtrl($scope, $mdToast) {
