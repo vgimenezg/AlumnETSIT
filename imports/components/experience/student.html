@@ -1,0 +1,32 @@
+<div ng-controller="StudentCtrl">
+    <h3 class="md-title">Datos Académicos</h3>
+    <!-- UNIVERSIDAD -->
+    <div layout="row" layout-wrap>
+        <div layout="column" flex="66">
+            <md-input-container class="register-input-container">
+                <label>Universidad</label>
+                <input type="text" name="universidad" ng-model="universidad"/>
+            </md-input-container>
+        </div>
+    </div>
+    <!-- CARRERA -->
+    <div layout="row" layout-wrap>
+        <div layout="column" flex="66">
+            <md-input-container class="register-input-container">
+                <label>Titulación</label>
+                <input type="text" name="titulacion" ng-model="titulacion"/>
+            </md-input-container>
+        </div>
+    </div>
+    <!-- CURSO -->
+    <div layout="row" layout-wrap>
+        <div layout="column" flex="66">
+            <md-input-container class="register-input-container">
+                <label>Curso</label>
+                <md-select ng-model="course">
+                  <md-option ng-repeat="course in courses" value="{{course}}">{{course}}</md-option>
+                </md-select>
+            </md-input-container>
+        </div>
+    </div>
+</div>

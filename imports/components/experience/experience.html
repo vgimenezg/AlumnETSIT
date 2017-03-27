@@ -1,144 +1,153 @@
-<div id="experience-template">
-    <md-divider></md-divider>
-    <h3>Experiencia Profesional</h3>
+<div id="experience-template" ng-controller="ExperienceCtrl">
     
-    <!-- ALIAS -->
-    <div layout="row" layout-wrap>
-       <div layout="column" flex="66">
-            <md-input-container class="register-input-container">
-                <label>Alias</label>
-                <input type="text" name="empresa" ng-model="empresa"/>
-            </md-input-container>
+    <div>
+        <h3 class="md-title">Experiencia Profesional</h3>
+        <!-- ALIAS -->
+        <div layout="row" layout-wrap>
+           <div layout="column" flex="66">
+                <md-input-container class="register-input-container">
+                    <label>Alias</label>
+                    <input type="text" name="empresa" ng-model="empresa"/>
+                </md-input-container>
+            </div>
+            <div layout="column" flex="33" ng-controller="ToastCtrl">
+                <md-button ng-click="showAliasToast()" class="md-accent text-left">
+                <md-icon style="margin-right: 5px;">
+                    <i class="material-icons md-18" ng-bind=icon></i>
+                </md-icon>
+            </md-button>
+            </div>
         </div>
-        <div layout="column" flex="33" ng-controller="ToastCtrl">
-            <md-button ng-click="showAliasToast()" class="md-accent text-left">
-            <md-icon style="margin-right: 5px;">
-                <i class="material-icons md-18" ng-bind=icon></i>
-            </md-icon>
-        </md-button>
+
+        <!-- PERFIL -->
+        <div layout="row" layout-wrap>
+           <div layout="column" flex="66" ng-controller="ProfileCtrl as ctrl">
+               <md-autocomplete flex
+                md-input-name="autocompleteField"
+                md-input-minlength="2"
+                md-input-maxlength="18"
+                md-no-cache="ctrl.noCache"
+                md-selected-item="ctrl.selectedItem"
+                md-search-text="ctrl.searchText"
+                md-items="item in ctrl.querySearch(ctrl.searchText)"
+                md-item-text="item.display"
+                md-require-match
+                md-floating-label="Perfil / Función">
+                  <md-item-template>
+                    <span md-highlight-text="ctrl.searchText">{{item.display}}</span>
+                  </md-item-template>
+                </md-autocomplete>
+            </div>
+            <div layout="column" ng-controller="SwitchCtrl" flex="33">
+                <md-switch ng-model="data.privacidad" ng-change="onChange(data.privacidad)">
+                        {{ message }}
+                </md-switch> 
+            </div>
+         </div>
+
+        <!-- TECNOLOGÍA -->
+        <div layout="row" layout-wrap>
+           <div layout="column" flex="66" ng-controller="TecnhologyCtrl" ng-cloak>
+                  <md-input-container class="register-input-container selectdemoSelectHeader">
+                    <label>Tecnologías Usadas</label>
+                    <md-select ng-model="selectedTecnhology"
+                               md-on-close="clearSearchTerm()"
+                               data-md-container-class="selectdemoSelectHeader"
+                               multiple>
+                      <md-select-header class="demo-select-header">
+                        <input ng-model="searchTerm"
+                               type="search"
+                               placeholder="Búsqueda de tecnologías..."
+                               class="demo-header-searchbox md-text">
+                      </md-select-header>
+                      <md-optgroup label="Tecnologias">
+                        <md-option ng-value="techno" ng-repeat="techno in technologies |
+                          filter:searchTerm">{{techno}}</md-option>
+                      </md-optgroup>
+                    </md-select>
+                  </md-input-container>
+            </div>
+            <div layout="column" ng-controller="SwitchCtrl" flex="33">
+                <md-switch ng-model="data.privacidad" ng-change="onChange(data.privacidad)">
+                        {{ message }}
+                </md-switch> 
+            </div>
         </div>
+
+        <!-- EMPRESA -->
+        <div layout="row" layout-wrap>
+            <div layout="column" flex="66">
+                <md-input-container class="register-input-container">
+                    <label>Empresa</label>
+                    <input type="text" name="empresa" ng-model="empresa"/>
+                </md-input-container>
+            </div>
+            <div layout="column" ng-controller="SwitchCtrl"  flex="33">
+                <md-switch ng-model="data.privacidad" ng-change="onChange(data.privacidad)">
+                        {{ message }}
+                </md-switch> 
+            </div>
+        </div>
+
+        <!-- SALARIO -->
+        <div layout="row" layout-wrap>
+            <div layout="column" flex="66">
+                <md-input-container class="register-input-container">
+                    <label>Salario bruto anual(€)</label>
+                    <input type="number" step="any" name="salario" ng-model="salario"/>
+                </md-input-container> 
+            </div>
+            <div layout="column" ng-controller="SwitchCtrl" flex="33">
+                <md-switch ng-model="data.privacidad" ng-change="onChange(data.privacidad)">
+                        {{ message }}
+                </md-switch> 
+            </div>
+         </div>
+
+        <!-- ANTIGUEDAD -->
+        <div layout="row" layout-wrap>
+            <div layout="column" flex="33">
+                <md-datepicker id="init-datepicker" class="register-input-container" ng-model="myDate" md-placeholder="Inicio" md-min-date="minDate" md-max-date="maxDate">
+                </md-datepicker>
+            </div>
+            <div layout="column"  flex="33">
+                <md-datepicker id="end-datepicker" class="register-input-container" ng-model="myDate" md-placeholder="Fin" md-min-date="minDate" md-max-date="maxDate">
+                </md-datepicker>
+            </div>
+        </div>
+
+        <div layout="row" ng-controller="ToastCtrl">
+            <md-container layout-margin>
+                <md-checkbox class="link-experience-checkbox">
+                        <span> Vincular experiencia al perfil</span>
+                    </md-checkbox>
+                <md-button ng-click="showLinkToast()" class="md-accent text-left">
+                <md-icon>
+                    <i class="material-icons md-18" ng-bind=icon></i>
+                </md-icon>
+            </md-button>
+           </md-container>
+        </div>
+         <!-- Add NEW EXPERIENCE template when click -->
+        <div layout="row" ng-init="openExperience=false">
+            <md-container ng-if="openExperience == false">
+                <md-button class="md-accent" ng-click="newExperiencie(true)">
+                    <md-icon style="margin-rigth: 5px;"><i class="material-icons">add</i></md-icon>
+                    Añadir experiencia
+                </md-button>
+            </md-container>
+        </div>
+        <div layout="column" ng-if="openExperience" ng-init="openExperience=false">
+                <md-divider class="primary"></md-divider>
+            <div layout="row" layout-align="end center">
+                <md-button class="md-accent" ng-click="newExperiencie(false)">
+                    <md-icon><i class="material-icons">close</i></md-icon> 
+                </md-button>
+                </div>
+        </div>
+        <span ng-if="openExperience" class="animate-if">
+            <experience></experience>
+        </span>
     </div>
-    
-    <!-- PERFIL -->
-    <div layout="row" layout-wrap>
-       <div layout="column" flex="66" ng-controller="ProfileCtrl as ctrl">
-           <md-autocomplete flex
-            md-input-name="autocompleteField"
-            md-input-minlength="2"
-            md-input-maxlength="18"
-            md-no-cache="ctrl.noCache"
-            md-selected-item="ctrl.selectedItem"
-            md-search-text="ctrl.searchText"
-            md-items="item in ctrl.querySearch(ctrl.searchText)"
-            md-item-text="item.display"
-            md-require-match
-            md-floating-label="Perfil / Función">
-              <md-item-template>
-                <span md-highlight-text="ctrl.searchText">{{item.display}}</span>
-              </md-item-template>
-            </md-autocomplete>
-        </div>
-        <div layout="column" ng-controller="SwitchCtrl" flex="33">
-            <md-switch ng-model="data.privacidad" ng-change="onChange(data.privacidad)">
-                    {{ message }}
-            </md-switch> 
-        </div>
-     </div>
-    
-    <!-- TECNOLOGÍA -->
-    <div layout="row" layout-wrap>
-       <div layout="column" flex="66" ng-controller="TecnhologyCtrl" ng-cloak>
-              <md-input-container class="register-input-container selectdemoSelectHeader">
-                <label>Tecnologías Usadas</label>
-                <md-select ng-model="selectedTecnhology"
-                           md-on-close="clearSearchTerm()"
-                           data-md-container-class="selectdemoSelectHeader"
-                           multiple>
-                  <md-select-header class="demo-select-header">
-                    <input ng-model="searchTerm"
-                           type="search"
-                           placeholder="Búsqueda de tecnologías..."
-                           class="demo-header-searchbox md-text">
-                  </md-select-header>
-                  <md-optgroup label="Tecnologias">
-                    <md-option ng-value="techno" ng-repeat="techno in technologies |
-                      filter:searchTerm">{{techno}}</md-option>
-                  </md-optgroup>
-                </md-select>
-              </md-input-container>
-        </div>
-        <div layout="column" ng-controller="SwitchCtrl" flex="33">
-            <md-switch ng-model="data.privacidad" ng-change="onChange(data.privacidad)">
-                    {{ message }}
-            </md-switch> 
-        </div>
-    </div>
-    
-    <!-- EMPRESA -->
-    <div layout="row" layout-wrap>
-        <div layout="column" flex="66">
-            <md-input-container class="register-input-container">
-                <label>Empresa</label>
-                <input type="text" name="empresa" ng-model="empresa"/>
-            </md-input-container>
-        </div>
-        <div layout="column" ng-controller="SwitchCtrl"  flex="33">
-            <md-switch ng-model="data.privacidad" ng-change="onChange(data.privacidad)">
-                    {{ message }}
-            </md-switch> 
-        </div>
-    </div>
-    
-    <!-- SALARIO -->
-    <div layout="row" layout-wrap>
-        <div layout="column" flex="66">
-            <md-input-container class="register-input-container">
-                <label>Salario bruto anual(€)</label>
-                <input type="number" step="any" name="salario" ng-model="salario"/>
-            </md-input-container> 
-        </div>
-        <div layout="column" ng-controller="SwitchCtrl" flex="33">
-            <md-switch ng-model="data.privacidad" ng-change="onChange(data.privacidad)">
-                    {{ message }}
-            </md-switch> 
-        </div>
-     </div>
-    
-    <!-- ANTIGUEDAD -->
-    <div layout="row">
-        <div layout="column" layout-wrap flex="50" >
-            <md-datepicker id="init-datepicker" class="register-input-container" ng-model="myDate" md-placeholder="Inicio" md-min-date="minDate" md-max-date="maxDate">
-            </md-datepicker>
-        </div>
-        <div layout="column"  flex="50" >
-            <md-datepicker id="end-datepicker" class="register-input-container" ng-model="myDate" md-placeholder="Fin" md-min-date="minDate" md-max-date="maxDate">
-            </md-datepicker>
-        </div>
-    </div>
-    
-    <div layout="row" ng-controller="ToastCtrl">
-        <md-container layout-margin>
-            <md-checkbox class="link-experience-checkbox">
-                    <span> Vincular experiencia al perfil</span>
-                </md-checkbox>
-            <md-button ng-click="showLinkToast()" class="md-accent text-left">
-            <md-icon>
-                <i class="material-icons md-18" ng-bind=icon></i>
-            </md-icon>
-        </md-button>
-       </md-container>
-    </div>
-   
-     <!-- Add NEW EXPERIENCE template when click -->
-    <script type="text/ng-template" id="/experience.html">
-      <experience></experience>
-    </script>
-    <div layout="row" layout-wrap>
-        <md-button ng-click="experienceTpl='/experience.html'" id="tpl-link" class="md-accent">
-            <md-icon style="margin-right: 5px;"><i class="material-icons">add</i></md-icon>
-            Añadir experiencia
-        </md-button>
-    </div>
-    <div id="tpl-content" ng-include src="experienceTpl"></div>
 </div>
 
