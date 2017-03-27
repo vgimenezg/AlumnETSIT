@@ -3,6 +3,7 @@ import template from './acquired_info.html';
 
 export default class AcquiredInfoCtrl {
     constructor($scope) {
+        $scope.$emit('showMenuButton', true);
         $scope.viewModel(this);
         this.elems = [
             {first: "Analista", second: "Empresa: Indra S.A.", third: "19000€ brutos/año", style: "md-3-line"},

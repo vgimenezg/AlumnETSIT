@@ -12,8 +12,8 @@ export default angular.module('register', [
  .controller("RegisterCtrl", RegisterCtrl);
 
 function RegisterCtrl($scope) {
-  $scope.showStudent = false;
-       
+    $scope.$emit('showMenuButton', false);
+    $scope.showStudent = false;
     $scope.shouldShowStudent = function(value) {
         $scope.showStudent = value;   
     }

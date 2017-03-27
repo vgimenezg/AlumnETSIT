@@ -4,6 +4,7 @@ import template from './info_request.html';
 export default class InfoRequestCtrl {
     constructor($scope) {
         $scope.viewModel(this);
+        $scope.$emit('showMenuButton', true);
         this.fields = [
             {name: "Nombre"},
             {name: "Perfil"},
@@ -12,5 +13,6 @@ export default class InfoRequestCtrl {
             {name: "Duración"},
             {name: "Sueldo"}
         ]
+        
     }
 }
