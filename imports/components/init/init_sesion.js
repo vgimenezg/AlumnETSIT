@@ -7,4 +7,8 @@ export default angular.module('initSesion', [
   angularMeteor
 ]).component('initSesion', {
     templateUrl: 'imports/components/init/init_sesion.html',
-});
+}).controller('InitSesionCtrl', InitSesionCtrl);
+
+function InitSesionCtrl($scope) {
+    $scope.$emit('showMenuButton', false);
+}

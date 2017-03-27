@@ -44,7 +44,8 @@ angular.module('proTic', [
     ngMaterial
 ])
 .config(routeConfig)
-.config(materialConfig);
+.config(materialConfig)
+.controller("globalController", globalController);;
 
 // Función de configuración de Material Angular, proveedor de iconos y de temas. Conveniente separar en otro fichero.
 function materialConfig($mdIconProvider, $mdThemingProvider) {
@@ -100,4 +101,15 @@ if (Meteor.isCordova) {
   angular.element(document).on('deviceready', onReady);
 } else {
   angular.element(document).ready(onReady);
+}
+
+function globalController($scope) {
+    $scope.$on('showBackButton', function(event, data) { 
+        $scope.$broadcast('showBackButtonHeader', data);
+    });
+    $scope.$on('showMenuButton', function(event, data) { 
+        $scope.$broadcast('showMenuButtonHeader', data);
+    });
+    
+    
 }

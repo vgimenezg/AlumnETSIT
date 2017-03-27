@@ -10,6 +10,7 @@ export default angular.module('home', [
 }).controller('HomeCtrl', HomeCtrl);
 
 function HomeCtrl($scope) {
+    $scope.$emit('showMenuButton', true);
     $scope.titleSearchButton = 'Buscador';
     $scope.infoSearch = 'Obtén información sobre otros perfiles a través  del Buscador';
     $scope.titleExchangeButton = 'Área de Intercambio';

@@ -15,6 +15,7 @@ export default angular.module('welcome', [
     });
 
 function WelcomeCtrl($scope) {
+    $scope.$emit('showMenuButton', false);
     $scope.info = {
             first: 'Bienvenido al portal en el que podrás conocer el estado del mercado laboral del sector TIC y con el que cnocerás el verdadero valor que tiene tu trabajo.',
             second: 'Te invitamos a que participes en el intercambio de información entre ususarios de la comunidad, donde tú eliges qué y con quién compartes tus datos.'

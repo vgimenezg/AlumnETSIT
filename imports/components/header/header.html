@@ -12,8 +12,11 @@
          <!-- Toolbar -->
         <md-toolbar md-whiteframe="2" class="fixed">
             <div class="md-toolbar-tools">
-                <md-button class="md-icon-button" aria-label="Menu" ng-click="openMenu()">
+                <md-button ng-if="menuIcon" class="md-icon-button" aria-label="Menu" ng-click="openMenu()">
                     <i class="material-icons">menu</i>
+                </md-button>
+                <md-button ng-if="backIcon" class="md-icon-button" aria-label="Back" ng-click="back()">
+                    <i class="material-icons">arrow_back</i>
                 </md-button>
                 <p class="header-title">
                     <a ng-bind="title" href="/home"></a>

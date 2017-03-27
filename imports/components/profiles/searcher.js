@@ -9,6 +9,8 @@ export default angular.module('profileSearcher', [
 }).controller("SearcherCtrl", SearcherCtrl);
 
 function SearcherCtrl($scope) {
+    $scope.$emit('showMenuButton', true);
+    $scope.$emit('showBackButton', false);
     $scope.searcher = {
         user: {
             options: [

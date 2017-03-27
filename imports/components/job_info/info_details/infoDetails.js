@@ -4,6 +4,8 @@ import template from './info_details.html';
 export default class InfoDetailsCtrl {
     constructor($scope) {
         $scope.viewModel(this);
+        $scope.$emit('showMenuButton', true);
+        $scope.$emit('showBackButton', true);
         this.info = {
             from: "Paco",
             sended: {
