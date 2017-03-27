@@ -12,6 +12,7 @@ import viewIndex from '../imports/components/view_index/view_index';
 import jobInfo from '../imports/components/job_info/jobInfo';
 import profiles from '../imports/components/profiles/profilesResults';
 import experience from '../imports/components/experience/experience';
+import student from '../imports/components/experience/student';
 import experienceSuccess from '../imports/components/experience/experience_success';
 import fullexperience from '../imports/components/experience/fullexperience';
 import welcome from '../imports/components/welcome/welcome';
@@ -32,6 +33,7 @@ angular.module('proTic', [
     viewIndex.name,
     jobInfo.name,
     experience.name,
+    student.name,
     fullexperience.name,
     welcome.name,
     initSesion.name,
