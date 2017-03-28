@@ -10,7 +10,7 @@ export default angular.module('jobInfo', [
     angularMeteor
 ]).component('infoRequest', {
     templateUrl: 'imports/components/job_info/info_request/info_request.html',
-    controller: ['$scope', InfoRequestCtrl]
+    controller: ['$scope','$mdDialog', '$window', InfoRequestCtrl]
 }).component('interchangeArea', {
     templateUrl: 'imports/components/job_info/interchange_area/interchange_area.html',
     controller: ['$scope', InterchangeAreaCtrl]
