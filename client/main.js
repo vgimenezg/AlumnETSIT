@@ -88,6 +88,9 @@ function routeConfig($locationProvider, $urlRouterProvider, $stateProvider) {
     $stateProvider.state('home', {url: '/home', template: '<home></home>'});
     $stateProvider.state('searcher', {url: '/searcher', template: '<searcher></searcher>'});
     $stateProvider.state('experienceSuccess', {url: '/experience_success', template: '<experience-success></experience-success>'});
+    $stateProvider.state('requestSuccess', {url: '/request_success', template: '<request-success></request-success>'});
+    $stateProvider.state('newRequest', {url: '/new_request', template: '<new-request></new-request>'});
+    
 }
 
 

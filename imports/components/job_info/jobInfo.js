@@ -5,12 +5,14 @@ import InfoDetailsCtrl from './info_details/infoDetails';
 import InterchangeAreaCtrl from "./interchange_area/interchangeArea";
 import AcquiredInfoCtrl from './acquired_info/acquiredInfo';
 import PendingRequestsCtrl from "./pending_requests/pendingRequests";
+import RequestSuccessCtrl from "./info_request/request_success";
+import NewRequestCtrl from "./info_request/newRequest";
 
 export default angular.module('jobInfo', [
     angularMeteor
 ]).component('infoRequest', {
     templateUrl: 'imports/components/job_info/info_request/info_request.html',
-    controller: ['$scope','$mdDialog', '$window', InfoRequestCtrl]
+    controller: ['$scope','$mdDialog', '$window', '$timeout', InfoRequestCtrl]
 }).component('interchangeArea', {
     templateUrl: 'imports/components/job_info/interchange_area/interchange_area.html',
     controller: ['$scope', InterchangeAreaCtrl]
@@ -23,4 +25,10 @@ export default angular.module('jobInfo', [
 }).component('infoDetails', {
     templateUrl: 'imports/components/job_info/info_details/info_details.html',
     controller: ['$scope', InfoDetailsCtrl]
+}).component('requestSuccess', {
+    templateUrl: 'imports/components/job_info/info_request/request_success.html',
+    controller: ['$scope', RequestSuccessCtrl]
+}).component('newRequest', {
+    templateUrl: 'imports/components/job_info/info_request/info_request.html',
+    controller: ['$scope','$mdDialog', '$window', NewRequestCtrl]
 });
