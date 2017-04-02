@@ -28,7 +28,7 @@ export default class NewRequestCtrl {
 
             $mdDialog.show(confirm).then(function() {
               $scope.status = 'Yes';
-                $window.location.href = '/profiles_results';
+                $window.location.href = '/request_success';
             }, function() {
               $scope.status = 'No';
             });

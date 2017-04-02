@@ -38,7 +38,7 @@
     <md-button ng-if="!newRequest && !dealRequest" class="md-warn" ng-click="showConfirmAnswer($event, 'Rechazar')" aria-label="Rechazar">Rechazar<md-icon style="margin-left:5px"><i class="material-icons">thumb_down</i></md-icon></md-button>
     <md-button ng-if="!newRequest && !dealRequest" class="md-accent" ng-click="toggleDeal()" aria-label="Negociar">Negociar<md-icon style="margin-left:5px"><i class="material-icons">thumbs_up_down</i></md-icon></md-button> 
     <md-button ng-if="dealRequest" class="md-warn" ng-click="toggleDeal()" aria-label="Rechazar">Cancelar negociación<md-icon style="margin-left:5px"><i class="material-icons">close</i></md-icon></md-button>
-    <md-button ng-if="dealRequest" class="md-primary" ng-click="showConfirmAnswer($event, 'Enviar')" aria-label="Negociar">Enviar negociación<md-icon style="margin-left:5px"><i class="material-icons">done_all</i></md-icon></md-button>
+    <md-button ng-if="dealRequest" class="md-primary" ng-click="showConfirm()" aria-label="Negociar">Enviar negociación<md-icon style="margin-left:5px"><i class="material-icons">done_all</i></md-icon></md-button>
 </div>
 
 <!-- Show Acctions for new request -->
