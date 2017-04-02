@@ -15,6 +15,7 @@ export default angular.module('experience', [angularMeteor])
 
 
 function ExperienceCtrl($scope, $element) {
+    $scope.isEdit = $scope.$parent.$parent.isEdit;
     $scope.newExperience = function(value) {
         $scope.openExperience = value;
     }

@@ -1,4 +1,4 @@
-<div id="experience-template" ng-controller="ExperienceCtrl">
+<div id="experience-template" ng-controller="ExperienceCtrl" class="ng-scope">
     
     <div>
         <h3 class="md-title">Experiencia Profesional</h3>
@@ -129,7 +129,7 @@
            </md-container>
         </div>
          <!-- Add NEW EXPERIENCE template when click -->
-        <div layout="row" ng-init="openExperience=false">
+        <div ng-if="!isEdit" layout="row" ng-init="openExperience=false">
             <md-container ng-if="openExperience == false">
                 <md-button class="md-accent" ng-click="newExperience(true)">
                     <md-icon style="margin-rigth: 5px;"><i class="material-icons">add</i></md-icon>
