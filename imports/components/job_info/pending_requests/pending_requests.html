@@ -24,8 +24,6 @@
     <md-divider></md-divider>
     <div layout="row" flex>
         <div layout="column" flex>
-
-
         <md-card ng-repeat="elem in $ctrl.elems">
             <md-card-title>
                 <md-card-title-text ng-if="elem.type === 'received'">
@@ -53,19 +51,9 @@
                 <md-button ng-disabled="true">Esperando respuesta</md-button>
             </md-card-actions>
             <md-card-actions layout="row" layout-align="start center" ng-if="elem.state === 'ready'">
-                <md-button class="md-accent md-hue-3" href="/info_request">Negociar</md-button>
-                <md-card-icon-actions>
-                    <md-button class="md-icon-button md-warn md-raised" aria-label="Favorite">
-                        <i class="material-icons">close</i>
-                    </md-button>
-                    <md-button class="md-icon-button md-primary md-raised" aria-label="Share">
-                        <i class="material-icons">check</i>
-                    </md-button>
-                </md-card-icon-actions>
+                <md-button class="md-accent md-hue-3" href="/info_request">Responder</md-button>
             </md-card-actions>
-
         </md-card>
         </div>
     </div>
-
 </div>

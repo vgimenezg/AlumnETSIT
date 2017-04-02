@@ -1,7 +1,7 @@
 
 <md-toolbar class="md-hue-2 section-toolbar" >
     <div class="md-toolbar-tools">
-        <h2>Solicitud de información</h2>
+        <h2>{{subtitle}}</h2>
     </div>
 </md-toolbar>
 <div layout="row" flex="" md-colors="{background: 'grey-100'}" layout-padding="">
@@ -22,16 +22,28 @@
             <span class="md-title" ng-bind="field.name"></span>
         </div>
         <div layout="column" flex="33" layout-align="center center">
-            <md-switch></md-switch>
+            <md-switch ng-disabled="!dealRequest"></md-switch>
         </div>
         <div layout="column" flex="33" layout-align="center center">
-            <md-switch></md-switch>
+            <md-switch ng-disabled="!dealRequest"></md-switch>
         </div>
     </div>
     <md-divider></md-divider>
 </div>
-<div layout="row">
+
+<!-- Show Acctions for recieved request -->
+<div layout="row" layout-align="center end" layout-padding>
+    
+    <md-button ng-if="!newRequest && !dealRequest" class="md-primary" ng-click="showConfirmAnswer($event, 'Aceptar')" aria-label="Aceptar">Aceptar<md-icon style="margin-left:5px"><i class="material-icons">thumb_up</i></md-icon></md-button>          
+    <md-button ng-if="!newRequest && !dealRequest" class="md-warn" ng-click="showConfirmAnswer($event, 'Rechazar')" aria-label="Rechazar">Rechazar<md-icon style="margin-left:5px"><i class="material-icons">thumb_down</i></md-icon></md-button>
+    <md-button ng-if="!newRequest && !dealRequest" class="md-accent" ng-click="toggleDeal()" aria-label="Negociar">Negociar<md-icon style="margin-left:5px"><i class="material-icons">thumbs_up_down</i></md-icon></md-button> 
+    <md-button ng-if="dealRequest" class="md-warn" ng-click="toggleDeal()" aria-label="Rechazar">Cancelar negociación<md-icon style="margin-left:5px"><i class="material-icons">close</i></md-icon></md-button>
+    <md-button ng-if="dealRequest" class="md-primary" ng-click="showConfirmAnswer($event, 'Enviar')" aria-label="Negociar">Enviar negociación<md-icon style="margin-left:5px"><i class="material-icons">done_all</i></md-icon></md-button>
+</div>
+
+<!-- Show Acctions for new request -->
+<div ng-if="newRequest" layout="row">
     <div layout="column" layout-margin layout-align="center center" flex="">
-        <md-button class="md-primary md-raised" href="/profiles_results">Enviar solicitud</md-button>
+        <md-button class="md-primary md-raised" ng-click="showConfirm($event)">Enviar solicitud</md-button>
     </div>
 </div>
