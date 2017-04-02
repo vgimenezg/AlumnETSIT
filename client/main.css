@@ -15,6 +15,14 @@
     text-align: right!important;
 }
 
+.no-margin {
+    margin: 0 !important;
+}
+
+.no-padding {
+    padding: 0 !important;
+}
+
 md-divider.primary  {
     border-top-color: green;
 }

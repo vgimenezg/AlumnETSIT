@@ -8,16 +8,27 @@ export default class InfoRequestCtrl {
         $scope.$emit('showMenuButton', true);
         $scope.subtitle = "Detalle de solicitud";
         this.fields = [
-            {name: "Nombre"},
-            {name: "Perfil"},
-            {name: "Empresa"},
-            {name: "Tecnologías"},
-            {name: "Duración"},
-            {name: "Sueldo"}
+            {name: "Nombre", offered: false, request: true},
+            {name: "Perfil", offered: true, request: "public"},
+            {name: "Empresa", offered: "public", request: "public"},
+            {name: "Tecnologías", offered: false, request: false},
+            {name: "Duración", offered: true, request: false},
+            {name: "Sueldo", offered: true, request: true}
         ]
 
+        $scope.isRequest = function(field) {
+            console.log(field.request == true);
+            return (field.request == true)
+        }
         $scope.toggleDeal = function() {
-            $scope.dealRequest = !$scope.dealRequest;
+             $scope.dealRequest = !$scope.dealRequest;
+            
+            if ( $scope.dealRequest) {
+                $scope.subtitle = "Negociación de información";
+            }else {
+                $scope.subtitle = "Detalle de solicitud";
+            }
+           
         };
         
         $scope.showConfirm = function(ev) {
