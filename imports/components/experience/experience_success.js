@@ -11,13 +11,14 @@ export default angular.module('experienceSuccess', [
     );
 
 function addExperienceCtrl($scope) {
+    console.log($scope);
     $scope.greeting = {
-        text:'¡Experiencia añadida!',
+        text:'¡Experiencia guardada!',
         icon:'check_circle'
     };
         
     $scope.info = {
-            first: 'Tus datos han sido guardados correctamente.',
+            first: 'Tus datos han sido procesados correctamente.',
             second: '¿Qué quieres hacer ahora...?'
     };
 

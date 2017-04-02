@@ -4,42 +4,96 @@
         <h2>{{subtitle}}</h2>
     </div>
 </md-toolbar>
-<div layout="row" flex="" md-colors="{background: 'grey-100'}" layout-padding="">
-    <div layout="column" flex="33" layout-align="center center">
+
+<!-- Show title for new request -->
+<div layout="row" flex="" md-colors="{background: 'grey-100'}" >
+    <div layout="column" flex="33" layout-align="center center" layout-padding>
         <span class="md-subhead">Dato</span>
     </div>
-    <div layout="column" flex="33" layout-align="center center">
-        <span class="md-subhead">Ofrecer dato</span>
+    <div ng-if="newRequest" layout="column" flex="33" layout-align="center center" layout-padding>
+        <span class="md-subhead">Ofrecer</span>
     </div>
-    <div layout="column" flex="33"  layout-align="center center">
-        <span class="md-subhead">Solicitar dato</span>
+    <div ng-if="newRequest" layout="column" flex="33"  layout-align="center center" layout-padding>
+        <span class="md-subhead">Solicitar</span>
+    </div>
+    <div ng-if="!newRequest && !dealRequest" layout="column" flex="33" layout-align="center center" layout-padding>
+        <span class="md-subhead">Solicitado</span>
+    </div>
+    <div ng-if="!newRequest && !dealRequest" layout="column" flex="33"  layout-align="center center" layout-padding>
+        <span class="md-subhead">Ofrecido</span>
+    </div>
+    <div ng-if="dealRequest" layout="column" flex="33" layout-align="center center" layout-padding>
+        <span class="md-subhead">Solicitado</span>
+        <span class="md-subhead">Ofrecer</span>
+    </div>
+    <div ng-if="dealRequest" layout="column" flex="33"  layout-align="center center" layout-padding>
+        <span class="md-subhead">Ofrecido</span>
+        <span class="md-subhead">Solicitar</span>
     </div>
 </div>
+
+<!-- Show title for recieved request -->
+
+
 <md-divider></md-divider>
+
 <div ng-repeat="field in $ctrl.fields">
     <div layout="row" flex>
-        <div layout="column" flex="33" layout-padding="" layout-align="center start">
+        <div layout="column" flex="33" layout-padding layout-align="center start">
             <span class="md-title" ng-bind="field.name"></span>
         </div>
-        <div layout="column" flex="33" layout-align="center center">
-            <md-switch ng-disabled="!dealRequest"></md-switch>
+        <div layout="column" flex="33" layout-padding layout-align="center center">
+            <!-- Show field action  for recieved request -->
+              <div layout="column" flex  layout-align="center center">
+                <div ng-if="!newRequest">
+                     <md-icon ng-if= "field.request == true"><i class="material-icons"></i>check</md-icon>
+                     <md-icon ng-if= "!field.request"><i class="material-icons"></i>close</md-icon>
+                     <md-icon ng-if= "field.request == 'public'"><i class="material-icons"></i>visibility</md-icon>
+                </div>
+                <div ng-if="dealRequest || newRequest">
+                    <md-switch class="no-margin" ng-if= "field.request != 'public'"></md-switch>
+                </div>
+            </div>        
         </div>
-        <div layout="column" flex="33" layout-align="center center">
-            <md-switch ng-disabled="!dealRequest"></md-switch>
+        
+          <div layout="column" flex="33" layout-padding layout-align="center center">
+            <!-- Show field action  for recieved request -->
+              <div layout="column" flex  layout-align="center center">
+                <div ng-if="!newRequest">
+                     <md-icon ng-if= "field.offered == true"><i class="material-icons"></i>check</md-icon>
+                     <md-icon ng-if= "!field.offered"><i class="material-icons"></i>close</md-icon>
+                     <md-icon ng-if= "field.offered == 'public'"><i class="material-icons"></i>visibility</md-icon>
+                </div>
+                <div ng-if="dealRequest || newRequest">
+                    <md-switch class="no-margin" ng-if= "field.offered != 'public'"></md-switch>
+                </div>
+            </div>        
         </div>
+        
     </div>
     <md-divider></md-divider>
 </div>
 
 <!-- Show Acctions for recieved request -->
-<div layout="row" layout-align="center end" layout-padding>
-    
-    <md-button ng-if="!newRequest && !dealRequest" class="md-primary" ng-click="showConfirmAnswer($event, 'Aceptar')" aria-label="Aceptar">Aceptar<md-icon style="margin-left:5px"><i class="material-icons">thumb_up</i></md-icon></md-button>          
-    <md-button ng-if="!newRequest && !dealRequest" class="md-warn" ng-click="showConfirmAnswer($event, 'Rechazar')" aria-label="Rechazar">Rechazar<md-icon style="margin-left:5px"><i class="material-icons">thumb_down</i></md-icon></md-button>
-    <md-button ng-if="!newRequest && !dealRequest" class="md-accent" ng-click="toggleDeal()" aria-label="Negociar">Negociar<md-icon style="margin-left:5px"><i class="material-icons">thumbs_up_down</i></md-icon></md-button> 
-    <md-button ng-if="dealRequest" class="md-warn" ng-click="toggleDeal()" aria-label="Rechazar">Cancelar negociación<md-icon style="margin-left:5px"><i class="material-icons">close</i></md-icon></md-button>
-    <md-button ng-if="dealRequest" class="md-primary" ng-click="showConfirmAnswer($event, 'Enviar')" aria-label="Negociar">Enviar negociación<md-icon style="margin-left:5px"><i class="material-icons">done_all</i></md-icon></md-button>
-</div>
+<md-card md-theme="default" md-theme-watch>
+    <div layout="row" layout-xs="column" layout-align="center">
+        <div ng-if="!newRequest && !dealRequest" layout="column" layout-xs="row" layout-align="center">
+            <md-button class="md-primary" ng-click="showConfirmAnswer($event, 'Aceptar')" aria-label="Aceptar">Aceptar<md-icon style="margin-left:5px"><i class="material-icons">thumb_up</i></md-icon></md-button>          
+        </div>
+        <div ng-if="!newRequest && !dealRequest"  layout="column" layout-xs="row" layout-align="center">
+            <md-button class="md-warn" ng-click="showConfirmAnswer($event, 'Rechazar')" aria-label="Rechazar">Rechazar<md-icon style="margin-left:5px"><i class="material-icons">thumb_down</i></md-icon></md-button>
+        </div>
+        <div ng-if="!newRequest && !dealRequest"  layout="column" layout-xs="row" layout-align="center">
+            <md-button class="md-accent" ng-click="toggleDeal()" aria-label="Negociar">Negociar<md-icon style="margin-left:5px"><i class="material-icons">thumbs_up_down</i></md-icon></md-button> 
+        </div>
+        <div ng-if="dealRequest" layout="column" layout-xs="row" layout-align="center">
+            <md-button  class="md-primary" ng-click="showConfirm()" aria-label="Negociar">Enviar negociación<md-icon style="margin-left:5px"><i class="material-icons">done_all</i></md-icon></md-button>
+        </div>
+        <div ng-if="dealRequest" layout="column" layout-xs="row" layout-align="center">
+            <md-button  class="md-warn" ng-click="toggleDeal()" aria-label="Rechazar">Cancelar negociación<md-icon style="margin-left:5px"><i class="material-icons">close</i></md-icon></md-button>
+        </div>
+    </div>
+</md-card>
 
 <!-- Show Acctions for new request -->
 <div ng-if="newRequest" layout="row">

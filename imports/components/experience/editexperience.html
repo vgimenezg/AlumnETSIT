@@ -1,0 +1,31 @@
+<div id="fullexperience" ng-controller="EditExperienceCtrl" class="ng-scope">
+    <md-toolbar class="md-hue-2 section-toolbar">
+        <div class="md-toolbar-tools">
+            <h2>Editar Experiencias</h2>
+        </div>
+    </md-toolbar>
+    <md-content layout="row" flex layout-padding>
+        <div layout="column" flex>
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>Experiencia</label>
+                <md-select ng-model="user.experience" ng-change="selected(user.experience)">
+                  <md-option ng-repeat="experience in allExperiences" value="{{experience.id}}">
+                    {{experience.alias}} - {{experience.company}}
+                  </md-option>
+                </md-select>
+            </md-input-container>
+            
+            <div ng-hide="!user.experience" layout="row" layout-padding class="animate-if">
+                <div layout="column" layout-fill>
+                    <experience></experience>
+                </div>
+            </div>
+            <div ng-hide="!user.experience" layout="row" flex layout-align="center" class="animate-if">
+                <md-button href="experience_success" flex="60" class="md-raised md-primary">
+                    Guardar
+                    <md-icon style="margin-left: 5px;"><i class="material-icons">keyboard_arrow_right</i></md-icon>
+                </md-button>
+            </div>
+        </div>
+    </md-content>
+</div>
