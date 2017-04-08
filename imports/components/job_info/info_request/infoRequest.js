@@ -13,9 +13,24 @@ export default class InfoRequestCtrl {
             {name: "Empresa", offered: "public", request: "public"},
             {name: "Tecnologías", offered: false, request: false},
             {name: "Duración", offered: true, request: false},
-            {name: "Sueldo", offered: true, request: true}
+            {name: "Sueldo", offered: true, request: true},
         ]
-
+        
+        $scope.fieldComent = "Me gustaría conocer el salario de alguien con misma experiencia"
+        $scope.fieldAllTecnologys = ['Php' ,'JavaScript' ,'Java' ,'MongoDB' ,'MySql', 'Go', 'HTML', 'Ada']
+        
+        function TecnhologyCtrl($scope, $element) {
+            /*Sustituir por listado de tecnologias recogido de BBDD*/
+            $scope.technologies = ['Php' ,'JavaScript' ,'Java' ,'MongoDB' ,'MySql', 'Go', 'HTML', 'Ada'];
+            $scope.searchTerm;
+            $scope.clearSearchTerm = function() {
+            $scope.searchTerm = '';
+            };
+            $element.find('input').on('keydown', function(ev) {
+                ev.stopPropagation();
+            });
+        }
+        
         $scope.isRequest = function(field) {
             console.log(field.request == true);
             return (field.request == true)
