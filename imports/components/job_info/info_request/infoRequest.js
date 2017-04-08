@@ -13,8 +13,12 @@ export default class InfoRequestCtrl {
             {name: "Empresa", offered: "public", request: "public"},
             {name: "Tecnologías", offered: false, request: false},
             {name: "Duración", offered: true, request: false},
-            {name: "Sueldo", offered: true, request: true}
+            {name: "Sueldo", offered: true, request: true},
         ]
+        
+        this.comment = {
+            name: "Comentario opcional"
+        }
 
         $scope.isRequest = function(field) {
             console.log(field.request == true);

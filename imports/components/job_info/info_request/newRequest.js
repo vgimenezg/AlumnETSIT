@@ -8,14 +8,20 @@ export default class NewRequestCtrl {
         $scope.newRequest = true;
         $scope.subtitle = "Nueva Solicitud";
         this.fields = [
-            {name: "Nombre"},
-            {name: "Perfil"},
-            {name: "Empresa"},
-            {name: "Tecnologías"},
-            {name: "Duración"},
-            {name: "Sueldo"}
-        ] 
-    
+            {name: "Nombre", offered: false, request: true},
+            {name: "Perfil", offered: true, request: "public"},
+            {name: "Empresa", offered: "public", request: "public"},
+            {name: "Tecnologías", offered: false, request: false},
+            {name: "Duración", offered: true, request: false},
+            {name: "Sueldo", offered: true, request: true},
+        ]
+        
+        this.historyTecnology = {name: "Tecnologías usadas", offered: false, request: false},
+             
+        this.comment = {
+            name: "Comentario opcional"
+        }
+        
         $scope.showConfirm = function(ev) {
             // Appending dialog to document.body to cover sidenav in docs app
             var confirm = $mdDialog.confirm()
@@ -32,6 +38,6 @@ export default class NewRequestCtrl {
             }, function() {
               $scope.status = 'No';
             });
-        };
+        };  
     } 
 }

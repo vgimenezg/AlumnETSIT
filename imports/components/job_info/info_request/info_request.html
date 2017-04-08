@@ -16,19 +16,11 @@
     <div ng-if="newRequest" layout="column" flex="33"  layout-align="center center" layout-padding>
         <span class="md-subhead">Solicitar</span>
     </div>
-    <div ng-if="!newRequest && !dealRequest" layout="column" flex="33" layout-align="center center" layout-padding>
+    <div ng-if="!newRequest" layout="column" flex="33" layout-align="center center" layout-padding>
         <span class="md-subhead">Solicitado</span>
     </div>
-    <div ng-if="!newRequest && !dealRequest" layout="column" flex="33"  layout-align="center center" layout-padding>
+    <div ng-if="!newRequest" layout="column" flex="33"  layout-align="center center" layout-padding>
         <span class="md-subhead">Ofrecido</span>
-    </div>
-    <div ng-if="dealRequest" layout="column" flex="33" layout-align="center center" layout-padding>
-        <span class="md-subhead">Solicitado</span>
-        <span class="md-subhead">Ofrecer</span>
-    </div>
-    <div ng-if="dealRequest" layout="column" flex="33"  layout-align="center center" layout-padding>
-        <span class="md-subhead">Ofrecido</span>
-        <span class="md-subhead">Solicitar</span>
     </div>
 </div>
 
@@ -44,35 +36,57 @@
         </div>
         <div layout="column" flex="33" layout-padding layout-align="center center">
             <!-- Show field action  for recieved request -->
-              <div layout="column" flex  layout-align="center center">
-                <div ng-if="!newRequest">
-                     <md-icon ng-if= "field.request == true"><i class="material-icons"></i>check</md-icon>
-                     <md-icon ng-if= "!field.request"><i class="material-icons"></i>close</md-icon>
+            <div layout="column" flex  layout-align="center center">
+                <div ng-if="!newRequest && !dealRequest">
+                    <md-icon ng-if= "field.request == true"><i class="material-icons"></i>check</md-icon>
+                </div>
+                <div ng-if="!newRequest && !dealRequest">
+                    <md-icon ng-if= "!field.request"><i class="material-icons"></i>close</md-icon>
+                </div>
+                <div>
                      <md-icon ng-if= "field.request == 'public'"><i class="material-icons"></i>visibility</md-icon>
                 </div>
-                <div ng-if="dealRequest || newRequest">
-                    <md-switch class="no-margin" ng-if= "field.request != 'public'"></md-switch>
-                </div>
-            </div>        
-        </div>
-        
-          <div layout="column" flex="33" layout-padding layout-align="center center">
-            <!-- Show field action  for recieved request -->
-              <div layout="column" flex  layout-align="center center">
-                <div ng-if="!newRequest">
+            </div>
+            <div ng-if="dealRequest || newRequest">
+                <md-switch class="no-margin" ng-if= "field.request != 'public'"></md-switch>
+            </div>
+        </div>        
+        <div layout="column" flex="33" layout-padding layout-align="center center">
+        <!-- Show field action  for recieved request -->
+            <div layout="column" flex  layout-align="center center">
+                <div ng-if="!newRequest && !dealRequest">
                      <md-icon ng-if= "field.offered == true"><i class="material-icons"></i>check</md-icon>
+                </div>
+                <div ng-if="!newRequest && !dealRequest">
                      <md-icon ng-if= "!field.offered"><i class="material-icons"></i>close</md-icon>
+                </div>
+                <div>
                      <md-icon ng-if= "field.offered == 'public'"><i class="material-icons"></i>visibility</md-icon>
                 </div>
+    
                 <div ng-if="dealRequest || newRequest">
                     <md-switch class="no-margin" ng-if= "field.offered != 'public'"></md-switch>
                 </div>
             </div>        
+        </div>  
+    </div>
+    
+    <md-divider></md-divider>   
+</div>
+
+<div ng-if="dealRequest || newRequest">
+    <div layout="row" flex>
+        <div layout="column" flex="33" layout-padding layout-align="center start">
+            <span class="md-title" ng-bind="$ctrl.comment.name"></span>
         </div>
-        
+        <div layout="column" flex="66" layout-fill layout-padding layout-margin>
+            <textarea ng-model="comment"></textarea>
+       </div>
     </div>
     <md-divider></md-divider>
 </div>
+
+
 
 <!-- Show Acctions for recieved request -->
 <md-card md-theme="default" md-theme-watch>
