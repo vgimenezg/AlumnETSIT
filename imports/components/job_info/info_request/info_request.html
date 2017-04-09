@@ -124,18 +124,18 @@
     </div>
 </div>
 
- <div layout="row" flex layout-padding layout-margin>
+ <div ng-if="!newRequest" layout="row" flex layout-padding layout-margin>
     <div layout="column" layout-fill layout-padding layout-margin>
-<!-- Show Acctions for recieved request -->
+        <!-- Show Acctions for recieved request -->
         <md-card md-theme="default" md-theme-watch>
             <div layout="row" layout-xs="column" layout-align="center">
-                <div ng-if="!newRequest && !dealRequest" layout="column" layout-xs="row" layout-align="center">
+                <div ng-if="!dealRequest" layout="column" layout-xs="row" layout-align="center">
                     <md-button class="md-primary" ng-click="showConfirmAnswer($event, 'Aceptar')" aria-label="Aceptar">Aceptar<md-icon style="margin-left:5px"><i class="material-icons">thumb_up</i></md-icon></md-button>          
                 </div>
-                <div ng-if="!newRequest && !dealRequest"  layout="column" layout-xs="row" layout-align="center">
+                <div ng-if="!dealRequest"  layout="column" layout-xs="row" layout-align="center">
                     <md-button class="md-warn" ng-click="showConfirmAnswer($event, 'Rechazar')" aria-label="Rechazar">Rechazar<md-icon style="margin-left:5px"><i class="material-icons">thumb_down</i></md-icon></md-button>
                 </div>
-                <div ng-if="!newRequest && !dealRequest"  layout="column" layout-xs="row" layout-align="center">
+                <div ng-if="!dealRequest"  layout="column" layout-xs="row" layout-align="center">
                     <md-button class="md-accent" ng-click="toggleDeal()" aria-label="Negociar">Negociar<md-icon style="margin-left:5px"><i class="material-icons">thumbs_up_down</i></md-icon></md-button> 
                 </div>
                 <div ng-if="dealRequest" layout="column" layout-xs="row" layout-align="center">

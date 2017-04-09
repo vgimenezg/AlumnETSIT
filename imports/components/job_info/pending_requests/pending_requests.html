@@ -27,7 +27,7 @@
         <md-card ng-repeat="elem in $ctrl.elems">
             <md-card-title>
                 <md-card-title-text ng-if="elem.type === 'received'">
-                    <span class="md-headline">Solicitud recibida</span>
+                    <span class="md-headline"> <md-icon style="margin-rigth: 10px;"><i class="material-icons">call_received</i></md-icon>Solicitud recibida</span>
                     <span class="md-subhead">
                         <span>De</span>
                         <span ng-if="elem.from" ng-bind="elem.from + ','"></span>
@@ -37,7 +37,7 @@
                     </span>
                 </md-card-title-text>
                 <md-card-title-text ng-if="elem.type === 'sended'">
-                    <span class="md-headline">Solicitud enviada</span>
+                    <span class="md-headline"><md-icon style="margin-rigth: 10px;"><i class="material-icons">call_made</i></md-icon>Solicitud enviada</span>
                     <span class="md-subhead">
                         <span>A</span>
                         <span ng-if="elem.to" ng-bind="elem.to + ','"></span>
