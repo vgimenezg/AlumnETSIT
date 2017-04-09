@@ -1,30 +1,36 @@
 <div>
-    <md-subheader>Criterios</md-subheader>
+    <md-subheader>Criterios de búsqueda</md-subheader>
     <div>
         <md-chips ng-model="$ctrl.params" name="techName" readonly="true" md-removable="false">
         </md-chips>
     </div>
 </div>
 <div>
-    <md-subheader>Resultados</md-subheader>
+    <md-subheader>Resultados de perfiles</md-subheader>
     <md-card ng-repeat="result in $ctrl.results">
-        <md-card-title>
-            <md-card-title-text>
-                <span class="md-headline">
-                    <i class="material-icons">person</i>
-                    <span ng-bind="result[0].name"></span>:
-                    <span ng-bind="result[0].value"></span>
-                </span>
-            </md-card-title-text>
-        </md-card-title>
         <md-card-content>
-            <div ng-repeat="property in result" ng-if="$index !== 0">
-                <span ng-bind="property.name"></span>:
-                <span ng-bind="property.value"></span>
-            </div>
-        </md-card-content>
-        <md-card-actions layout="row" layout-align="end center">
+            <md-card-actions layout="row" layout-align="end center">
             <md-button class="md-accent" href="/new_request">Solicitar más información</md-button>
         </md-card-actions>
+            <md-grid-list
+                    md-cols-xs="2" md-cols-sm="3" md-cols-md="4" md-cols-gt-md="6"
+                    md-row-height-gt-md="1:1" md-row-height="4:3"
+                    md-gutter="8px" md-gutter-gt-sm="4px">
+
+                <md-grid-tile ng-repeat="option in $ctrl.infoOptions" class="gray" rowspan="1" md-colspan="1">
+                    <div ng-repeat="property in result">
+                        <div ng-if = "property.name == option.name && property.value" layout="colum" flex="100" layout-align="center center">
+                            <p ng-bind="property.value"></p>
+                        </div>
+                    </div>
+                  <md-grid-tile-footer>
+                     <md-icon><i class="material-icons md-16" ng-bind="option.icon"></i></md-icon>
+                      <span>{{option.label}}</span>
+                  </md-grid-tile-footer>
+                </md-grid-tile>
+                
+            </md-grid-list>
+        </md-card-content>
+        
     </md-card>
 </div>
