@@ -20,7 +20,7 @@ class ProfilesResultsCtrl {
        this.results = [[
             {name: "position", value: "Analista"},
             {name: "company", value: "Indra"},
-            {name: "salary", value: "19000€ brutos/año"},
+            {name: "salary", value: "19000€ bruto/año"},
         ], [
             {name: "name", value: "Pedro"},
             {name: "duration", value: "5 años"},

@@ -65,5 +65,9 @@ md-grid-tile-footer md-icon {
     margin-left: 5px;
 }
 
+.content-grid {
+    top: 0;
+    position: absolute;
+}
 
 

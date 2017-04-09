@@ -13,13 +13,13 @@
             <md-button class="md-accent" href="/new_request">Solicitar más información</md-button>
         </md-card-actions>
             <md-grid-list
-                    md-cols-xs="2" md-cols-sm="3" md-cols-md="4" md-cols-gt-md="6"
-                    md-row-height-gt-md="1:1" md-row-height="4:3"
+                    md-cols-xs="2" md-cols-sm="3" md-cols-gt-xs="6"
+                    md-row-height-xs="9:6" md-row-height-sm="4:3" md-row-height-gt-sm="5:3"
                     md-gutter="8px" md-gutter-gt-sm="4px">
 
                 <md-grid-tile ng-repeat="option in $ctrl.infoOptions" class="gray" rowspan="1" md-colspan="1">
-                    <div ng-repeat="property in result">
-                        <div ng-if = "property.name == option.name && property.value" layout="colum" flex="100" layout-align="center center">
+                     <div class="content-grid" ng-repeat="property in result">
+                        <div ng-if = "property.name == option.name && property.value">
                             <p ng-bind="property.value"></p>
                         </div>
                     </div>
