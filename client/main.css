@@ -70,4 +70,14 @@ md-grid-tile-footer md-icon {
     position: absolute;
 }
 
+.profile-result md-input-container {
+   margin:5px; 
+}
+.profile-result md-card-content {
+    margin-top: 15px;
+}
+.info-visible input, .info-visible i  {
+    color:rgb(76,175,80) !important;
+}
+
 
