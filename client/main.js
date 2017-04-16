@@ -2,6 +2,7 @@ import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import ngMaterial from 'angular-material';
 import uiRouter from 'angular-ui-router';
+import angularMessages from 'angular-messages';
 
 // Custom Components
 import register from '../imports/components/register/register';
@@ -43,7 +44,8 @@ angular.module('proTic', [
     profileSearcher.name,
     experienceSuccess.name,
     editexperience.name,
-    ngMaterial
+    ngMaterial,
+    angularMessages
 ])
 .config(routeConfig)
 .config(materialConfig)
