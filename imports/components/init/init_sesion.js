@@ -9,6 +9,12 @@ export default angular.module('initSesion', [
     templateUrl: 'imports/components/init/init_sesion.html',
 }).controller('InitSesionCtrl', InitSesionCtrl);
 
-function InitSesionCtrl($scope) {
+function InitSesionCtrl($scope, $state) {
     $scope.$emit('showMenuButton', false);
+    
+    $scope.submit = function () {
+        if (!$scope.loginForm.$invalid ){
+            $state.go("home");
+        }
+    }
 }

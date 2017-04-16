@@ -4,24 +4,30 @@
         <h2>Inicio de Sesión</h2>
     </div>
 </md-toolbar>
-<div layout="column" flex="100" class="full-height" ng-controller="InitSesionCtrl">
+<div layout="column" flex="100" class="full-height">
     <md-content layout-padding flex>
         <h3>Datos de Acceso</h3>
-        <form class="new-experience">
-            <div layout="column" layout-align="center" flex="100">
+        <form name="loginForm" id="loginForm" class="new-experience" ng-submit="submit()" ng-controller="InitSesionCtrl">
+            <div layout="column" layout-margin layout-align="center" flex="100">
                 <md-input-container class="register-input-container">
                     <label>Usuario</label>
-                    <input type="text" name="username" ng-model="username" />
+                    <input type="text" name="username" ng-model="username" required/>
+                    <div ng-messages="loginForm.username.$error">
+                        <div ng-message="required">Este campo es obligatorio</div>
+                    </div>
                 </md-input-container>
             </div>
-            <div layout="column" layout-align="center">
+            <div layout="column"  layout-margin layout-align="center">
                 <md-input-container class="register-input-container">
                     <label>Contraseña</label>
-                    <input type="text" name="password" ng-model="password" />
+                    <input type="text" name="password" ng-model="password" required/>
+                    <div ng-messages="loginForm.password.$error">
+                        <ng-message when="required" translate>Este campo es obligatorio</ng-message>
+                    </div>
                 </md-input-container>
             </div>
             <div layout="row" flex layout-align="center" layout-margin>
-                <md-button href="/home" flex="60" class="md-raised md-primary" type="submit">
+                <md-button flex="60" class="md-raised md-primary" type="submit" value="Submit">
                     Acceder
                     <md-icon style="margin-left: 5px;"><i class="material-icons">keyboard_arrow_right</i></md-icon>
                 </md-button>
