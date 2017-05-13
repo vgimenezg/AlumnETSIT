@@ -20,7 +20,7 @@
             <div layout="column"  layout-margin layout-align="center">
                 <md-input-container class="register-input-container">
                     <label>Contraseña</label>
-                    <input type="text" name="password" ng-model="password" required/>
+                    <input type="password" name="password" ng-model="password" required/>
                     <div ng-messages="loginForm.password.$error">
                         <ng-message when="required" translate>Este campo es obligatorio</ng-message>
                     </div>
