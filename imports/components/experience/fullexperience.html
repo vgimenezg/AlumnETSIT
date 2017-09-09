@@ -4,19 +4,21 @@
             <h2>Añadir Experiencia</h2>
         </div>
     </md-toolbar>
-    <md-content layout="row" flex layout-padding ng-controller="RegisterCtrl">
-        <div layout="column" flex>
-            <div layout="row" layout-padding>
-                <div layout="column" layout-fill>
-                    <experience></experience>
+    <md-content layout="row" flex layout-padding ng-controller="FullExperienceCtrl">
+        <form name="newExperienceForm" ng-submit="submit()">
+            <div layout="column" flex>
+                <div layout="row" layout-padding>
+                    <div layout="column" layout-fill>
+                        <experience></experience>
+                    </div>
+                </div>
+                <div layout="row" flex layout-align="center">
+                    <md-button type="submit" flex="60" class="md-raised md-primary">
+                        Terminar
+                        <md-icon style="margin-left: 5px;"><i class="material-icons">keyboard_arrow_right</i></md-icon>
+                    </md-button>
                 </div>
             </div>
-            <div layout="row" flex layout-align="center">
-                <md-button href="experience_success" flex="60" class="md-raised md-primary">
-                    Terminar
-                    <md-icon style="margin-left: 5px;"><i class="material-icons">keyboard_arrow_right</i></md-icon>
-                </md-button>
-            </div>
-        </div>
+        </form>
     </md-content>
 </div>

@@ -20,7 +20,7 @@ function menuController($scope, $window) {
         profile: {
             options: [
                 {name: "Editar mis datos de acceso", icon:  "person"},
-                {name: "Editar experiencias", icon:  "edit"},
+                {name: "Editar experiencias", icon:  "edit", href: "/edit_experience"},
                 {name: "Añadir experiencia", icon:  "add_circle", href: "/fullexperience"},
             ]
         },

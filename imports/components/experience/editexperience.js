@@ -8,7 +8,7 @@ export default angular.module('editexperience', [
     templateUrl: 'imports/components/experience/editexperience.html',
 }).controller('EditExperienceCtrl', EditExperienceCtrl);
 
-function EditExperienceCtrl($scope) {
+function EditExperienceCtrl($scope, $state) {
     $scope.$emit('showMenuButton', true);
     $scope.$emit('showBackButton', true);
     $scope.$broadcast('isEditExperience', true);
@@ -18,4 +18,9 @@ function EditExperienceCtrl($scope) {
         {id: 2, alias:"Progamador", company:"Indra"},
         {id: 3, alias:"Analista", company:"Inchoo"},
     ]
+    $scope.submit = function () {
+        if (!$scope.editExperienceForm.$invalid ){
+           $state.go("experienceSuccess");
+        }
+    }
 }

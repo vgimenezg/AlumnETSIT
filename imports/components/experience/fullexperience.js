@@ -8,6 +8,12 @@ export default angular.module('fullexperience', [
     templateUrl: 'imports/components/experience/fullexperience.html',
 }).controller('FullExperienceCtrl', FullExperienceCtrl);
 
-function FullExperienceCtrl($scope) {
+function FullExperienceCtrl($scope, $state) {
     $scope.$emit('showMenuButton', true);
+    $scope.submit = function () {
+        console.log($scope.newExperienceForm);
+        if (!$scope.newExperienceForm.$invalid ){
+           $state.go("experienceSuccess");
+        }
+    }
 }

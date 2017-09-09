@@ -11,10 +11,16 @@ export default angular.module('register', [
 })
  .controller("RegisterCtrl", RegisterCtrl);
 
-function RegisterCtrl($scope) {
+function RegisterCtrl($scope, $state) {
     $scope.$emit('showMenuButton', false);
     $scope.showStudent = false;
     $scope.shouldShowStudent = function(value) {
         $scope.showStudent = value;   
+    }
+    $scope.submit = function () {
+        console.log($scope.registerForm);
+        if (!$scope.registerForm.$invalid ){
+           $state.go("success");
+        }
     }
 }
