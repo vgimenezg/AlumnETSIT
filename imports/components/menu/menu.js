@@ -2,19 +2,14 @@ import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import template from './menu.html';
 
-menuController.$inject = ["$scope", "$window", "$mdSidenav", "$rootScope"];
+menuController.$inject = ["$scope", "$window", "$mdSidenav"];
 export default angular.module('menu', [
   angularMeteor
 ]).component('sidenavMenu', {
     templateUrl: 'imports/components/menu/menu.html',
 }).controller("MenuController", menuController);
 
-function menuController($scope, $window, $mdSidenav, $rootScope) {
-
-    // Se cierra al recibir el evento de cierre de menú.
-    $rootScope.$on("close-menu", function (eventId, event) {
-        $mdSidenav("menu-sidenav").close();
-    });
+function menuController($scope, $window, $mdSidenav) {
 
     // Descripción del menú, con navegación.
     $scope.menu = {
