@@ -47,9 +47,24 @@ angular.module('proTic', [
     ngMaterial,
     angularMessages
 ])
+.run(preInitializeRun)
 .config(routeConfig)
 .config(materialConfig)
-.controller("globalController", globalController);;
+.controller("globalController", globalController);
+
+// Función que se ejecuta la primera.
+function preInitializeRun($rootScope, $mdSidenav, $state) {
+    // Se ejecuta en cada salto de navegación.
+    $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams){
+        if($mdSidenav("menu-sidenav").isOpen()) {
+            event.preventDefault();
+            $mdSidenav("menu-sidenav").close();
+            $state.go(fromState.name);
+        }
+
+    });
+}
+
 
 // Función de configuración de Material Angular, proveedor de iconos y de temas. Conveniente separar en otro fichero.
 function materialConfig($mdIconProvider, $mdThemingProvider) {
@@ -95,6 +110,8 @@ function routeConfig($locationProvider, $urlRouterProvider, $stateProvider) {
     $stateProvider.state('requestSuccess', {url: '/request_success', template: '<request-success></request-success>'});
     $stateProvider.state('newRequest', {url: '/new_request', template: '<new-request></new-request>'});
     $stateProvider.state('editexperience', {url: '/edit_experience', template: '<editexperience></editexperience>'});   
+
+
 }
 
 

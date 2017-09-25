@@ -19,6 +19,8 @@ function getTitle() {
 }
 
 function headerController($scope, $mdSidenav, $window) {
+
+
     $scope.backIcon = false;
     $scope.menuIcon = true;
     $scope.$on('showBackButtonHeader', function(event, data) { 
@@ -30,6 +32,7 @@ function headerController($scope, $mdSidenav, $window) {
     $scope.title = getTitle();
     $scope.subtitle = getSubtitle();
     $scope.name = "Anónimo";
+
     $scope.openMenu = function () {
         $mdSidenav("menu-sidenav").toggle();
     }
